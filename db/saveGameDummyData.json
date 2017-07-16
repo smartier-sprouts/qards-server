@@ -1,0 +1,43 @@
+// Saving game state formatting
+
+// input:
+{
+  "type": "Gin Straight",
+  "owners": [
+    {
+      "name": "Jon",
+      "username": "jon.anderson",
+      "turn": 0,
+      "cards": [
+        {
+          "desc": "K",
+          "suit": "♥"
+        },
+        {
+          "desc": "Q",
+          "suit": "♥"
+        }
+        // ...
+      ]
+    },
+    {
+      "name": "Jake",
+      "username": "JakeSklar.js",
+      "turn": 0,
+      "cards": [
+        {
+          "desc": "6",
+          "suit": "♥"
+        },
+        {
+          "desc": "5",
+          "suit": "♥"
+        }
+        // ...
+      ]
+    }
+    // ...
+  ]
+}
+
+// output: same

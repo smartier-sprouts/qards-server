@@ -33,7 +33,7 @@ const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server);
 
-socketIdsInRoom = (name) => {
+const socketIdsInRoom = (name) => {
   var socketIds = io.nsps['/'].adapter.rooms[name];
   if (socketIds) {
     var collection = [];
