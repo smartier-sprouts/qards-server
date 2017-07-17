@@ -23,6 +23,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 //app.use('/', routes.auth);
 app.use('/api', routes.api);
 //app.use('/api/profiles', routes.profiles);
+app.use('/newGame', routes.newGame);
+app.use('/updateGame', routes.updateGame);
 
 
 
@@ -46,9 +48,9 @@ const socketIdsInRoom = (name) => {
   }
 };
 
-io.on('connection', function(socket){
+io.on('connection', function(socket) {
   console.log('connection');
-  socket.on('disconnect', function(){
+  socket.on('disconnect', function() {
     console.log('disconnect');
     if (socket.room) {
       var room = socket.room;
@@ -57,7 +59,7 @@ io.on('connection', function(socket){
     }
   });
 
-  socket.on('join', function(name, callback){
+  socket.on('join', function(name, callback) {
     console.log('join', name);
     var socketIds = socketIdsInRoom(name);
     callback(socketIds);
@@ -66,7 +68,7 @@ io.on('connection', function(socket){
   });
 
 
-  socket.on('exchange', function(data){
+  socket.on('exchange', function(data) {
     console.log('exchange', data);
     data.from = socket.id;
     var to = io.sockets.connected[data.to];
