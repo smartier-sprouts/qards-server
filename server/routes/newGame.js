@@ -4,7 +4,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const db = require('../../db/helpers');
 
-router.route('/newGame')
+router.route('/')
   .post((req, res) => {
     console.log('Saving new game to db');
     db.saveGame(req.body, res);

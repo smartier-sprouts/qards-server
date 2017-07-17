@@ -1,5 +1,5 @@
 {
-  "name": "course.thesis",
+  "name": "qards",
   "version": "1.0.0",
   "engines": {
     "node": ">=7.1.0"
