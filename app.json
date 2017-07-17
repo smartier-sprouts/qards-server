@@ -3,6 +3,8 @@
   "scripts": {
   },
   "env": {
+    "dbfilepath": {"required": true},
+    "MONGODB_URI": {"required": true}
   },
   "formation": {
   },
@@ -10,6 +12,6 @@
 
   ],
   "buildpacks": [
-
+    {"url": "heroku/nodejs"}
   ]
 }

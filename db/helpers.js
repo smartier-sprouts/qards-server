@@ -5,18 +5,9 @@ const Game = require('./index').game;
 mongoose.Promise = global.Promise;
 // const db = require('./index').db;
 
-let uri;
-if (process.env.dbfilepath) {
-  uri = process.env.dbfilepath;
-  console.log('dbfilepath from process.env: ', dbfilepath);
-}
+let MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/games';
 
-if (process.env.MONGODB_URI) {
-  uri = process.env.MONGODB_URI;
-  console.log('MONGODB_URI: ', process.env.MONGODB_URI);
-}
-
-mongoose.connect(uri || 'mongodb://localhost/games', { useMongoClient: true });
+mongoose.connect(MONGODB_URI, { useMongoClient: true });
 
 const saveGame = (data, res) => {
   const game = new Game(data).save()
