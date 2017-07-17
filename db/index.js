@@ -7,8 +7,6 @@ const Schema = mongoose.Schema;
 db.plugin('registry');
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/games', { useMongoClient: true });
-
 const cardSchema = new Schema({
   desc: String,
   suit: String
