@@ -1,0 +1,255 @@
+// Saving game state formatting
+
+// input:
+{
+  "type": "Gin Straight",
+  "owners": [
+    {
+      "name": "Jon",
+      "username": "jon.anderson",
+      "turn": 0,
+      "cards": [
+        {
+          "desc": "K",
+          "suit": "♥"
+        },
+        {
+          "desc": "Q",
+          "suit": "♥"
+        },
+        {
+          "desc": "J",
+          "suit": "♥"
+        },
+        {
+          "desc": "10",
+          "suit": "♥"
+        },
+        {
+          "desc": "9",
+          "suit": "♥"
+        },
+        {
+          "desc": "8",
+          "suit": "♥"
+        },
+        {
+          "desc": "7",
+          "suit": "♥"
+        }
+      ]
+    },
+    {
+      "name": "Jake",
+      "username": "jakesklar.js",
+      "turn": 1,
+      "cards": [
+        {
+          "desc": "K",
+          "suit": "♠"
+        },
+        {
+          "desc": "Q",
+          "suit": "♠"
+        },
+        {
+          "desc": "J",
+          "suit": "♠"
+        },
+        {
+          "desc": "10",
+          "suit": "♠"
+        },
+        {
+          "desc": "9",
+          "suit": "♠"
+        },
+        {
+          "desc": "8",
+          "suit": "♠"
+        },
+        {
+          "desc": "6",
+          "suit": "♠"
+        }
+      ]
+    },
+    {
+      "name": "Henri",
+      "username": "henrisaccount",
+      "turn": 2,
+      "cards": [
+        {
+          "desc": "K",
+          "suit": "♦"
+        },
+        {
+          "desc": "Q",
+          "suit": "♦"
+        },
+        {
+          "desc": "J",
+          "suit": "♦"
+        },
+        {
+          "desc": "10",
+          "suit": "♦"
+        },
+        {
+          "desc": "9",
+          "suit": "♦"
+        },
+        {
+          "desc": "8",
+          "suit": "♦"
+        },
+        {
+          "desc": "6",
+          "suit": "♦"
+        }
+      ]
+    },
+    {
+      "name": "James",
+      "username": "ManUTilDeath",
+      "turn": 3,
+      "cards": [
+        {
+          "desc": "K",
+          "suit": "♣️"
+        },
+        {
+          "desc": "Q",
+          "suit": "♣️"
+        },
+        {
+          "desc": "J",
+          "suit": "♣️"
+        },
+        {
+          "desc": "10",
+          "suit": "♣️"
+        },
+        {
+          "desc": "9",
+          "suit": "♣️"
+        },
+        {
+          "desc": "8",
+          "suit": "♣️"
+        },
+        {
+          "desc": "6",
+          "suit": "♣️"
+        }
+      ]
+    },
+    {
+      "name": "Rich",
+      "username": "r-i-c-h",
+      "turn": 4,
+      "cards": [
+        {
+          "desc": "A",
+          "suit": "♣️"
+        },
+        {
+          "desc": "2",
+          "suit": "♣️"
+        },
+        {
+          "desc": "2",
+          "suit": "♥"
+        },
+        {
+          "desc": "3",
+          "suit": "♠"
+        },
+        {
+          "desc": "3",
+          "suit": "♣️"
+        },
+        {
+          "desc": "3",
+          "suit": "♦"
+        },
+        {
+          "desc": "3",
+          "suit": "♥"
+        }
+      ]
+    },
+    {
+      "name": "Draw",
+      "username": null,
+      "turn": null,
+      "cards": [
+        {
+          "desc": "2",
+          "suit": "♥"
+        },
+        {
+          "desc": "2",
+          "suit": "♥"
+        },
+        {
+          "desc": "J",
+          "suit": "♥"
+        },
+        {
+          "desc": "10",
+          "suit": "♥"
+        },
+        {
+          "desc": "9",
+          "suit": "♥"
+        },
+        {
+          "desc": "8",
+          "suit": "♥"
+        },
+        {
+          "desc": "7",
+          "suit": "♥"
+        }
+      ]
+    },
+    {
+      "name": "Discard",
+      "username": null,
+      "turn": null,
+      "cards": [
+        {
+          "desc": "K",
+          "suit": "♥"
+        },
+        {
+          "desc": "Q",
+          "suit": "♥"
+        },
+        {
+          "desc": "J",
+          "suit": "♥"
+        },
+        {
+          "desc": "10",
+          "suit": "♥"
+        },
+        {
+          "desc": "9",
+          "suit": "♥"
+        },
+        {
+          "desc": "8",
+          "suit": "♥"
+        },
+        {
+          "desc": "7",
+          "suit": "♥"
+        }
+      ]
+    }
+  ]
+}
+
+// output: same
