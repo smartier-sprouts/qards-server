@@ -29,6 +29,7 @@
     "grunt-pg": "https://github.com/watsoncj/grunt-pg.git",
     "http": "^0.0.0",
     "knex": "^0.12.9",
+    "mongoose": "^4.11.3",
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
