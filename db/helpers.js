@@ -7,6 +7,8 @@ mongoose.Promise = global.Promise;
 
 let MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/games';
 
+console.log('mongo uri is ', MONGODB_URI);
+
 mongoose.connect(MONGODB_URI, { useMongoClient: true });
 
 const saveGame = (data, res) => {
