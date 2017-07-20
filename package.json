@@ -14,7 +14,9 @@
   "author": "Hack Reactor",
   "license": "MIT",
   "dependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
+    "babel-preset-node6": "^11.0.0",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",

@@ -2,12 +2,13 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const db = require('../../db/helpers');
+const { createGame } = require('../../db/helpers');
 
+// see ~/db/dummyData/createGame.json for formatting
 router.route('/')
   .post((req, res) => {
-    console.log('Saving new game to db');
-    db.saveGame(req.body, res);
+    console.log('Creating new game in db');
+    createGame(req.body, res);
   });
 
 module.exports = router;

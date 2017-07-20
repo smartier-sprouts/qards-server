@@ -1,0 +1,1234 @@
+[
+    {
+        "_id": "596c3f91ff1a3509ab5408f3",
+        "type": "ginStraight",
+        "__v": 0,
+        "owners": [
+            {
+                "turn": 0,
+                "username": "jon.anderson",
+                "name": "Jon",
+                "_id": "596c42ca1932380d9c8f4f9c",
+                "cards": [
+                    {
+                        "suit": "♥",
+                        "desc": "A",
+                        "_id": "596c42ca1932380d9c8f4fa3"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "Q",
+                        "_id": "596c42ca1932380d9c8f4fa2"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "J",
+                        "_id": "596c42ca1932380d9c8f4fa1"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "10",
+                        "_id": "596c42ca1932380d9c8f4fa0"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "9",
+                        "_id": "596c42ca1932380d9c8f4f9f"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "8",
+                        "_id": "596c42ca1932380d9c8f4f9e"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "7",
+                        "_id": "596c42ca1932380d9c8f4f9d"
+                    }
+                ]
+            },
+            {
+                "turn": 1,
+                "username": "jakesklar.js",
+                "name": "Jake",
+                "_id": "596c42ca1932380d9c8f4f94",
+                "cards": [
+                    {
+                        "suit": "♠",
+                        "desc": "K",
+                        "_id": "596c42ca1932380d9c8f4f9b"
+                    },
+                    {
+                        "suit": "♠",
+                        "desc": "Q",
+                        "_id": "596c42ca1932380d9c8f4f9a"
+                    },
+                    {
+                        "suit": "♠",
+                        "desc": "J",
+                        "_id": "596c42ca1932380d9c8f4f99"
+                    },
+                    {
+                        "suit": "♠",
+                        "desc": "10",
+                        "_id": "596c42ca1932380d9c8f4f98"
+                    },
+                    {
+                        "suit": "♠",
+                        "desc": "9",
+                        "_id": "596c42ca1932380d9c8f4f97"
+                    },
+                    {
+                        "suit": "♠",
+                        "desc": "8",
+                        "_id": "596c42ca1932380d9c8f4f96"
+                    },
+                    {
+                        "suit": "♠",
+                        "desc": "6",
+                        "_id": "596c42ca1932380d9c8f4f95"
+                    }
+                ]
+            },
+            {
+                "turn": 2,
+                "username": "henrisaccount",
+                "name": "Henri",
+                "_id": "596c42ca1932380d9c8f4f8c",
+                "cards": [
+                    {
+                        "suit": "♦",
+                        "desc": "K",
+                        "_id": "596c42ca1932380d9c8f4f93"
+                    },
+                    {
+                        "suit": "♦",
+                        "desc": "Q",
+                        "_id": "596c42ca1932380d9c8f4f92"
+                    },
+                    {
+                        "suit": "♦",
+                        "desc": "J",
+                        "_id": "596c42ca1932380d9c8f4f91"
+                    },
+                    {
+                        "suit": "♦",
+                        "desc": "10",
+                        "_id": "596c42ca1932380d9c8f4f90"
+                    },
+                    {
+                        "suit": "♦",
+                        "desc": "9",
+                        "_id": "596c42ca1932380d9c8f4f8f"
+                    },
+                    {
+                        "suit": "♦",
+                        "desc": "8",
+                        "_id": "596c42ca1932380d9c8f4f8e"
+                    },
+                    {
+                        "suit": "♦",
+                        "desc": "6",
+                        "_id": "596c42ca1932380d9c8f4f8d"
+                    }
+                ]
+            },
+            {
+                "turn": 3,
+                "username": "ManUTilDeath",
+                "name": "James",
+                "_id": "596c42ca1932380d9c8f4f84",
+                "cards": [
+                    {
+                        "suit": "♣️",
+                        "desc": "K",
+                        "_id": "596c42ca1932380d9c8f4f8b"
+                    },
+                    {
+                        "suit": "♣️",
+                        "desc": "Q",
+                        "_id": "596c42ca1932380d9c8f4f8a"
+                    },
+                    {
+                        "suit": "♣️",
+                        "desc": "J",
+                        "_id": "596c42ca1932380d9c8f4f89"
+                    },
+                    {
+                        "suit": "♣️",
+                        "desc": "10",
+                        "_id": "596c42ca1932380d9c8f4f88"
+                    },
+                    {
+                        "suit": "♣️",
+                        "desc": "9",
+                        "_id": "596c42ca1932380d9c8f4f87"
+                    },
+                    {
+                        "suit": "♣️",
+                        "desc": "8",
+                        "_id": "596c42ca1932380d9c8f4f86"
+                    },
+                    {
+                        "suit": "♣️",
+                        "desc": "6",
+                        "_id": "596c42ca1932380d9c8f4f85"
+                    }
+                ]
+            },
+            {
+                "turn": 4,
+                "username": "r-i-c-h",
+                "name": "Rich",
+                "_id": "596c42ca1932380d9c8f4f7c",
+                "cards": [
+                    {
+                        "suit": "♣️",
+                        "desc": "A",
+                        "_id": "596c42ca1932380d9c8f4f83"
+                    },
+                    {
+                        "suit": "♣️",
+                        "desc": "2",
+                        "_id": "596c42ca1932380d9c8f4f82"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "2",
+                        "_id": "596c42ca1932380d9c8f4f81"
+                    },
+                    {
+                        "suit": "♠",
+                        "desc": "3",
+                        "_id": "596c42ca1932380d9c8f4f80"
+                    },
+                    {
+                        "suit": "♣️",
+                        "desc": "3",
+                        "_id": "596c42ca1932380d9c8f4f7f"
+                    },
+                    {
+                        "suit": "♦",
+                        "desc": "3",
+                        "_id": "596c42ca1932380d9c8f4f7e"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "3",
+                        "_id": "596c42ca1932380d9c8f4f7d"
+                    }
+                ]
+            },
+            {
+                "turn": null,
+                "username": null,
+                "name": "Draw",
+                "_id": "596c42ca1932380d9c8f4f74",
+                "cards": [
+                    {
+                        "suit": "♥",
+                        "desc": "2",
+                        "_id": "596c42ca1932380d9c8f4f7b"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "2",
+                        "_id": "596c42ca1932380d9c8f4f7a"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "J",
+                        "_id": "596c42ca1932380d9c8f4f79"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "10",
+                        "_id": "596c42ca1932380d9c8f4f78"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "9",
+                        "_id": "596c42ca1932380d9c8f4f77"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "8",
+                        "_id": "596c42ca1932380d9c8f4f76"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "7",
+                        "_id": "596c42ca1932380d9c8f4f75"
+                    }
+                ]
+            },
+            {
+                "turn": null,
+                "username": null,
+                "name": "Discard",
+                "_id": "596c42ca1932380d9c8f4f6c",
+                "cards": [
+                    {
+                        "suit": "♥",
+                        "desc": "K",
+                        "_id": "596c42ca1932380d9c8f4f73"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "Q",
+                        "_id": "596c42ca1932380d9c8f4f72"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "J",
+                        "_id": "596c42ca1932380d9c8f4f71"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "10",
+                        "_id": "596c42ca1932380d9c8f4f70"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "9",
+                        "_id": "596c42ca1932380d9c8f4f6f"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "8",
+                        "_id": "596c42ca1932380d9c8f4f6e"
+                    },
+                    {
+                        "suit": "♥",
+                        "desc": "7",
+                        "_id": "596c42ca1932380d9c8f4f6d"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "_id": "596c44d98a14841396a8ecc8",
+        "type": "ginStraight",
+        "__v": 0,
+        "owners": [
+            {
+                "name": "Jon",
+                "username": "jon.anderson",
+                "turn": 0,
+                "_id": "596c44d98a14841396a8ecf9",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ed00"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecff"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecfe"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecfd"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecfc"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecfb"
+                    },
+                    {
+                        "desc": "7",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecfa"
+                    }
+                ]
+            },
+            {
+                "name": "Jake",
+                "username": "jakesklar.js",
+                "turn": 1,
+                "_id": "596c44d98a14841396a8ecf1",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♠",
+                        "_id": "596c44d98a14841396a8ecf8"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♠",
+                        "_id": "596c44d98a14841396a8ecf7"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♠",
+                        "_id": "596c44d98a14841396a8ecf6"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♠",
+                        "_id": "596c44d98a14841396a8ecf5"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♠",
+                        "_id": "596c44d98a14841396a8ecf4"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♠",
+                        "_id": "596c44d98a14841396a8ecf3"
+                    },
+                    {
+                        "desc": "6",
+                        "suit": "♠",
+                        "_id": "596c44d98a14841396a8ecf2"
+                    }
+                ]
+            },
+            {
+                "name": "Henri",
+                "username": "henrisaccount",
+                "turn": 2,
+                "_id": "596c44d98a14841396a8ece9",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♦",
+                        "_id": "596c44d98a14841396a8ecf0"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♦",
+                        "_id": "596c44d98a14841396a8ecef"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♦",
+                        "_id": "596c44d98a14841396a8ecee"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♦",
+                        "_id": "596c44d98a14841396a8eced"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♦",
+                        "_id": "596c44d98a14841396a8ecec"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♦",
+                        "_id": "596c44d98a14841396a8eceb"
+                    },
+                    {
+                        "desc": "6",
+                        "suit": "♦",
+                        "_id": "596c44d98a14841396a8ecea"
+                    }
+                ]
+            },
+            {
+                "name": "James",
+                "username": "ManUTilDeath",
+                "turn": 3,
+                "_id": "596c44d98a14841396a8ece1",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ece8"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ece7"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ece6"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ece5"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ece4"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ece3"
+                    },
+                    {
+                        "desc": "6",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ece2"
+                    }
+                ]
+            },
+            {
+                "name": "Rich",
+                "username": "r-i-c-h",
+                "turn": 4,
+                "_id": "596c44d98a14841396a8ecd9",
+                "cards": [
+                    {
+                        "desc": "A",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ece0"
+                    },
+                    {
+                        "desc": "2",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ecdf"
+                    },
+                    {
+                        "desc": "2",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecde"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♠",
+                        "_id": "596c44d98a14841396a8ecdd"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♣️",
+                        "_id": "596c44d98a14841396a8ecdc"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♦",
+                        "_id": "596c44d98a14841396a8ecdb"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecda"
+                    }
+                ]
+            },
+            {
+                "name": "Draw",
+                "username": null,
+                "turn": null,
+                "_id": "596c44d98a14841396a8ecd1",
+                "cards": [
+                    {
+                        "desc": "2",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecd8"
+                    },
+                    {
+                        "desc": "2",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecd7"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecd6"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecd5"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecd4"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecd3"
+                    },
+                    {
+                        "desc": "7",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecd2"
+                    }
+                ]
+            },
+            {
+                "name": "Discard",
+                "username": null,
+                "turn": null,
+                "_id": "596c44d98a14841396a8ecc9",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecd0"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8eccf"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecce"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8eccd"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8eccc"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8eccb"
+                    },
+                    {
+                        "desc": "7",
+                        "suit": "♥",
+                        "_id": "596c44d98a14841396a8ecca"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "_id": "596ff569c82ea68b42fcdced",
+        "type": "Gin Straight",
+        "__v": 0,
+        "owners": [
+            {
+                "name": "Jon",
+                "username": "jon.anderson",
+                "turn": 0,
+                "_id": "596ff569c82ea68b42fcdd1e",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdd25"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdd24"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdd23"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdd22"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdd21"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdd20"
+                    },
+                    {
+                        "desc": "7",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdd1f"
+                    }
+                ]
+            },
+            {
+                "name": "Jake",
+                "username": "jakesklar.js",
+                "turn": 1,
+                "_id": "596ff569c82ea68b42fcdd16",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♠",
+                        "_id": "596ff569c82ea68b42fcdd1d"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♠",
+                        "_id": "596ff569c82ea68b42fcdd1c"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♠",
+                        "_id": "596ff569c82ea68b42fcdd1b"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♠",
+                        "_id": "596ff569c82ea68b42fcdd1a"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♠",
+                        "_id": "596ff569c82ea68b42fcdd19"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♠",
+                        "_id": "596ff569c82ea68b42fcdd18"
+                    },
+                    {
+                        "desc": "6",
+                        "suit": "♠",
+                        "_id": "596ff569c82ea68b42fcdd17"
+                    }
+                ]
+            },
+            {
+                "name": "Henri",
+                "username": "henrisaccount",
+                "turn": 2,
+                "_id": "596ff569c82ea68b42fcdd0e",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♦",
+                        "_id": "596ff569c82ea68b42fcdd15"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♦",
+                        "_id": "596ff569c82ea68b42fcdd14"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♦",
+                        "_id": "596ff569c82ea68b42fcdd13"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♦",
+                        "_id": "596ff569c82ea68b42fcdd12"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♦",
+                        "_id": "596ff569c82ea68b42fcdd11"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♦",
+                        "_id": "596ff569c82ea68b42fcdd10"
+                    },
+                    {
+                        "desc": "6",
+                        "suit": "♦",
+                        "_id": "596ff569c82ea68b42fcdd0f"
+                    }
+                ]
+            },
+            {
+                "name": "James",
+                "username": "ManUTilDeath",
+                "turn": 3,
+                "_id": "596ff569c82ea68b42fcdd06",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd0d"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd0c"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd0b"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd0a"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd09"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd08"
+                    },
+                    {
+                        "desc": "6",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd07"
+                    }
+                ]
+            },
+            {
+                "name": "Rich",
+                "username": "r-i-c-h",
+                "turn": 4,
+                "_id": "596ff569c82ea68b42fcdcfe",
+                "cards": [
+                    {
+                        "desc": "A",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd05"
+                    },
+                    {
+                        "desc": "2",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd04"
+                    },
+                    {
+                        "desc": "2",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdd03"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♠",
+                        "_id": "596ff569c82ea68b42fcdd02"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♣️",
+                        "_id": "596ff569c82ea68b42fcdd01"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♦",
+                        "_id": "596ff569c82ea68b42fcdd00"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcff"
+                    }
+                ]
+            },
+            {
+                "name": "Draw",
+                "username": null,
+                "turn": null,
+                "_id": "596ff569c82ea68b42fcdcf6",
+                "cards": [
+                    {
+                        "desc": "2",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcfd"
+                    },
+                    {
+                        "desc": "2",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcfc"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcfb"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcfa"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcf9"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcf8"
+                    },
+                    {
+                        "desc": "7",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcf7"
+                    }
+                ]
+            },
+            {
+                "name": "Discard",
+                "username": null,
+                "turn": null,
+                "_id": "596ff569c82ea68b42fcdcee",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcf5"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcf4"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcf3"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcf2"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcf1"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcf0"
+                    },
+                    {
+                        "desc": "7",
+                        "suit": "♥",
+                        "_id": "596ff569c82ea68b42fcdcef"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "_id": "596ffa027b00dea51793c334",
+        "type": "Gin Straight",
+        "__v": 0,
+        "owners": [
+            {
+                "name": "Jon",
+                "username": "jon.anderson",
+                "turn": 0,
+                "_id": "596ffa027b00dea51793c365",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c36c"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c36b"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c36a"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c369"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c368"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c367"
+                    },
+                    {
+                        "desc": "7",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c366"
+                    }
+                ]
+            },
+            {
+                "name": "Jake",
+                "username": "jakesklar.js",
+                "turn": 1,
+                "_id": "596ffa027b00dea51793c35d",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♠",
+                        "_id": "596ffa027b00dea51793c364"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♠",
+                        "_id": "596ffa027b00dea51793c363"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♠",
+                        "_id": "596ffa027b00dea51793c362"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♠",
+                        "_id": "596ffa027b00dea51793c361"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♠",
+                        "_id": "596ffa027b00dea51793c360"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♠",
+                        "_id": "596ffa027b00dea51793c35f"
+                    },
+                    {
+                        "desc": "6",
+                        "suit": "♠",
+                        "_id": "596ffa027b00dea51793c35e"
+                    }
+                ]
+            },
+            {
+                "name": "Henri",
+                "username": "henrisaccount",
+                "turn": 2,
+                "_id": "596ffa027b00dea51793c355",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♦",
+                        "_id": "596ffa027b00dea51793c35c"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♦",
+                        "_id": "596ffa027b00dea51793c35b"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♦",
+                        "_id": "596ffa027b00dea51793c35a"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♦",
+                        "_id": "596ffa027b00dea51793c359"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♦",
+                        "_id": "596ffa027b00dea51793c358"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♦",
+                        "_id": "596ffa027b00dea51793c357"
+                    },
+                    {
+                        "desc": "6",
+                        "suit": "♦",
+                        "_id": "596ffa027b00dea51793c356"
+                    }
+                ]
+            },
+            {
+                "name": "James",
+                "username": "ManUTilDeath",
+                "turn": 3,
+                "_id": "596ffa027b00dea51793c34d",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c354"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c353"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c352"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c351"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c350"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c34f"
+                    },
+                    {
+                        "desc": "6",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c34e"
+                    }
+                ]
+            },
+            {
+                "name": "Rich",
+                "username": "r-i-c-h",
+                "turn": 4,
+                "_id": "596ffa027b00dea51793c345",
+                "cards": [
+                    {
+                        "desc": "A",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c34c"
+                    },
+                    {
+                        "desc": "2",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c34b"
+                    },
+                    {
+                        "desc": "2",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c34a"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♠",
+                        "_id": "596ffa027b00dea51793c349"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♣️",
+                        "_id": "596ffa027b00dea51793c348"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♦",
+                        "_id": "596ffa027b00dea51793c347"
+                    },
+                    {
+                        "desc": "3",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c346"
+                    }
+                ]
+            },
+            {
+                "name": "Draw",
+                "username": null,
+                "turn": null,
+                "_id": "596ffa027b00dea51793c33d",
+                "cards": [
+                    {
+                        "desc": "2",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c344"
+                    },
+                    {
+                        "desc": "2",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c343"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c342"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c341"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c340"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c33f"
+                    },
+                    {
+                        "desc": "7",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c33e"
+                    }
+                ]
+            },
+            {
+                "name": "Discard",
+                "username": null,
+                "turn": null,
+                "_id": "596ffa027b00dea51793c335",
+                "cards": [
+                    {
+                        "desc": "K",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c33c"
+                    },
+                    {
+                        "desc": "Q",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c33b"
+                    },
+                    {
+                        "desc": "J",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c33a"
+                    },
+                    {
+                        "desc": "10",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c339"
+                    },
+                    {
+                        "desc": "9",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c338"
+                    },
+                    {
+                        "desc": "8",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c337"
+                    },
+                    {
+                        "desc": "7",
+                        "suit": "♥",
+                        "_id": "596ffa027b00dea51793c336"
+                    }
+                ]
+            }
+        ]
+    }
+]
