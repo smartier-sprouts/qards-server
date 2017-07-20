@@ -11,15 +11,6 @@ mongoose.Promise = global.Promise;
 console.log('MongoDB uri is', MONGODB_URI);
 mongoose.connect(MONGODB_URI, { useMongoClient: true });
 
-const createGame = (data, res) => {
-  const game = new Game(data).save()
-  .catch(err => console.log('Error saving game:', err))
-  .then(game => {
-    console.log('Game saved:', game);
-    res.status(201).send(game._id);
-  });
-};
-
 const findGame = (data, res) => {
   Game.find(data)
   .catch(err => console.log('Error finding game:', err))
@@ -38,15 +29,15 @@ const findAllGames = (res) => {
   });
 };
 
-const updateGame = (gameId, gameData, res) => {
-  Game.findByIdAndUpdate(gameId, {'owners': gameData.owners}, {"new": true})
-  .catch(err => console.log('Error updating and returning game', err))
+const createGame = (data, res) => {
+  const game = new Game(data).save()
+  .catch(err => console.log('Error saving game:', err))
   .then(game => {
-    console.log(`Game ${gameId} updated. New game data:
-    ${game}`);
-    res.status(200).send(game);
+    console.log('Game saved:', game);
+    res.status(201).send(game._id);
   });
 };
+
 
 const addPlayer = (gameId, player, res) => {
   let owner = new Owner(player);
@@ -61,10 +52,25 @@ const addPlayer = (gameId, player, res) => {
   });
 };
 
+const dealCards = (gameId, gameData, res) => {
+  Game.findByIdAndUpdate(gameId, {'owners': gameData.owners}, {"new": true})
+  .catch(err => console.log('Error updating and returning game', err))
+  .then(game => {
+    console.log(`Game ${gameId} updated. New game data:
+    ${game}`);
+    res.status(200).send(game);
+  });
+};
+
+
+// const drawCard = (gameId, playerId, deckId) => {
+//   Game.findByIdAnd
+// };
+
 module.exports = {
-  createGame: createGame, 
   findGame: findGame, 
   findAllGames: findAllGames, 
-  updateGame: updateGame, 
-  addPlayer: addPlayer
+  createGame: createGame, 
+  addPlayer: addPlayer,
+  dealCards: dealCards 
 };

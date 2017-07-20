@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 // const middleware = require('./middleware');
 const bodyParser = require('body-parser');
-const { api, createGame, addPlayer, startGame, updateGame } = require('./routes');
+const { api, createGame, addPlayer, dealCards, updateGame } = require('./routes');
 const games = require('./routes/games');
 
 const app = express();
@@ -29,7 +29,7 @@ app.use('/api', api);
 app.use('/api/games', games);
 app.use('/api/createGame', createGame);
 app.use('/api/addPlayer', addPlayer);
-app.use('/api/startGame', startGame);
+app.use('/api/dealCards', dealCards);
 app.use('/api/updateGame', updateGame);
 
 
