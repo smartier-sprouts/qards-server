@@ -2,11 +2,11 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { findAllGames } = require('../../db/helpers');
+const { findFilteredGames } = require('../../db/helpers');
 
 router.route('/')
   .get((req, res) => {
-    findAllGames(res);
+    findFilteredGames({open: true, public: true}, res);
   });
 
 module.exports = router;

@@ -29,6 +29,15 @@ const findAllGames = (res) => {
   });
 };
 
+const findFilteredGames = (filter, res) => {
+  Game.find(filter)
+  .catch(err => console.log('Error finding game:', err))
+  .then(games => {
+    console.log('Games found:', games);
+    res.status(200).send(games);
+  });
+};
+
 const createGame = (data, res) => {
   const game = new Game(data).save()
   .catch(err => console.log('Error saving game:', err))
@@ -61,19 +70,15 @@ const dealCards = (gameId, data, res) => {
   });
 };
 
-// const getHand = (gameId, playerId, res) => {
-//   Game.findById(gameId, )
-// };
-
 // const drawCard = (gameId, playerId, deckId) => {
 //   Game.findByIdAnd
 // };
 
 module.exports = {
   findGame: findGame, 
-  findAllGames: findAllGames, 
+  findAllGames: findAllGames,
+  findFilteredGames: findFilteredGames, 
   createGame: createGame, 
   addPlayer: addPlayer,
-  dealCards: dealCards//,
-  //getHand: getHand
+  dealCards: dealCards
 };

@@ -2,36 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-//const deck = require('./cards').deck;
 const { findGame, dealCards } = require('../../db/helpers');
-
-class Deck {
-  constructor() {
-    this.descs = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-    this.suits = ['♥', '♣', '♦', '♠'];
-    let cards = [];
-
-    for (let suit = 0; suit < this.suits.length; suit++ ) {
-      for (let desc = 0; desc < this.descs.length; desc++ ) {
-        cards.push({value: desc + 1, desc: this.descs[desc], suit: this.suits[suit]});
-      }
-    }
-
-    return cards;
-  }
-}
-
-const shuffle = (deck) => {
-  let temp = null;
-
-  for (let i = deck.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    temp = deck[i];
-    deck[i] = deck[j];
-    deck[j] = temp;
-  }
-};
-
+const shuffle = require('./newDeck').shuffle;
 
 router.route('/:gameId') 
   .get((req, response) => {
@@ -44,7 +16,7 @@ router.route('/:gameId')
       let playerCount = game.owners.length;
       let hands = {};
       let cardsPerPlayer = req.body.cardsPerPlayer || 7;
-      let deck = new Deck;
+      let deck = require('./newDeck').deck;
       shuffle(deck);
       
       for (let i = 0; i < cardsPerPlayer; i++) {
@@ -69,6 +41,7 @@ router.route('/:gameId')
 
       game.owners.push(discardDeck);
       game.owners.push(drawDeck);
+      game.open = false;
 
       dealCards(game._id, game, response);
 
@@ -78,12 +51,3 @@ router.route('/:gameId')
 
 
 module.exports = router;
-
-/*
-{
-  gameId:
-  playerIds: []
-};
-
-
-*/

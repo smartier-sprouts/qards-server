@@ -28,4 +28,4 @@ const shuffle = (deck) => {
 let deck = new Deck;
 shuffle(deck);
 
-export default deck;
+module.exports = {deck, shuffle};
