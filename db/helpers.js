@@ -11,12 +11,12 @@ mongoose.Promise = global.Promise;
 console.log('MongoDB uri is', MONGODB_URI);
 mongoose.connect(MONGODB_URI, { useMongoClient: true });
 
-const findGame = (data, res) => {
-  Game.find(data)
+const findGame = (id, resolve) => {
+  Game.findById(id)
   .catch(err => console.log('Error finding game:', err))
   .then(game => {
     console.log('Game found:', game);
-    res.status(200).send(game);
+    resolve(game);
   });
 };
 
@@ -34,34 +34,36 @@ const createGame = (data, res) => {
   .catch(err => console.log('Error saving game:', err))
   .then(game => {
     console.log('Game saved:', game);
-    res.status(201).send(game._id);
+    res.status(201).send({gameId: game._id, playerId: game.owners[0]._id});
   });
 };
 
-
 const addPlayer = (gameId, player, res) => {
   let owner = new Owner(player);
-  console.log(player);
+  console.log(`Player data: ${player}`);
   Game.findByIdAndUpdate(gameId, {'$push': {'owners': player} }, {'new': true})
   .catch(err => console.log('Error adding player to existing game:', err))
   .then(game => {
     let playerId = game.owners[game.owners.length - 1]._id;
     console.log(`Game ${gameId} updated to add player ${playerId}. Current players are: 
     ${game.owners}`);
-    res.status(200).send(game);
+    res.status(200).send({gameId: game._id, playerId: game.owners[game.owners.length - 1]});
   });
 };
 
-const dealCards = (gameId, gameData, res) => {
-  Game.findByIdAndUpdate(gameId, {'owners': gameData.owners}, {"new": true})
+const dealCards = (gameId, data, res) => {
+  Game.findByIdAndUpdate(gameId, {'owners': data.owners}, {'new': true})
   .catch(err => console.log('Error updating and returning game', err))
   .then(game => {
-    console.log(`Game ${gameId} updated. New game data:
+    console.log(`Game ${gameId} updated. Game data after cards have been dealt:
     ${game}`);
-    res.status(200).send(game);
+    res.status(200).send('Cards dealt');
   });
 };
 
+// const getHand = (gameId, playerId, res) => {
+//   Game.findById(gameId, )
+// };
 
 // const drawCard = (gameId, playerId, deckId) => {
 //   Game.findByIdAnd
@@ -72,5 +74,6 @@ module.exports = {
   findAllGames: findAllGames, 
   createGame: createGame, 
   addPlayer: addPlayer,
-  dealCards: dealCards 
+  dealCards: dealCards//,
+  //getHand: getHand
 };

@@ -2,7 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { dealCards } = require('../../db/helpers');
+//const deck = require('./cards').deck;
+const { findGame, dealCards } = require('../../db/helpers');
 
 class Deck {
   constructor() {
@@ -31,14 +32,48 @@ const shuffle = (deck) => {
   }
 };
 
-let deck = new Deck;
-shuffle(deck);
 
-router.route('/') 
-  .post((req, res) => {
-    
-    console.log('Updating game data after dealing');
-    dealCards(req.body.gameId, req.body.gameData, res);
+router.route('/:gameId') 
+  .get((req, response) => {
+    const getGame = new Promise((resolve, reject) => {
+      findGame(req.params.gameId, resolve);
+    });
+    getGame
+    .then(game => {
+      if (!game) { throw err; }
+      let playerCount = game.owners.length;
+      let hands = {};
+      let cardsPerPlayer = req.body.cardsPerPlayer || 7;
+      let deck = new Deck;
+      shuffle(deck);
+      
+      for (let i = 0; i < cardsPerPlayer; i++) {
+        for (let j = 0; j < playerCount; j++) {
+          game.owners[j].cards.push(deck.pop());
+        }
+      }
+
+      let discardDeck = {
+        name: 'Discard',
+        username: 'Discard',
+        cards: [deck.pop()],
+        turn: null
+      };
+
+      let drawDeck = {
+        name: 'Draw',
+        username: 'Draw',
+        cards: deck,
+        turn: null
+      };
+
+      game.owners.push(discardDeck);
+      game.owners.push(drawDeck);
+
+      dealCards(game._id, game, response);
+
+    })
+    .catch(err => console.log(`Error dealing cards: ${err}`));
   });
 
 
