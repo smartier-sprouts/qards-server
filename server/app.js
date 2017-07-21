@@ -3,10 +3,11 @@ const express = require('express');
 const path = require('path');
 // const middleware = require('./middleware');
 const bodyParser = require('body-parser');
-const routes = require('./routes');
+const { api, createGame, addPlayer, dealCards, updateGame, getHand, games } = require('./routes');
+// const games = require('./routes/games');
 
 const app = express();
-//
+
 // app.use(middleware.morgan('dev'));
 // app.use(middleware.cookieParser());
 // app.use(middleware.bodyParser.urlencoded({extended: false}));
@@ -23,12 +24,14 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 
 //app.use('/', routes.auth);
-app.use('/api', routes.api);
+app.use('/api', api);
 //app.use('/api/profiles', routes.profiles);
-app.use('/api/newGame', routes.newGame);
-app.use('/api/updateGame', routes.updateGame);
-
-
+app.use('/api/games', games);
+app.use('/api/createGame', createGame);
+app.use('/api/addPlayer', addPlayer);
+app.use('/api/dealCards', dealCards);
+// app.use('/api/updateGame', updateGame);
+app.use('/api/getHand', getHand);
 
 
 //socket crap

@@ -1,0 +1,13 @@
+// input:
+{
+  "type": "Gin Straight",
+  "owners": [{
+    "name": "Jon",
+    "username": "jon.anderson",
+    "turn": 0
+  }]
+}
+
+/*
+output: "5970bea1d2b27873f6c61ac1"
+*/
