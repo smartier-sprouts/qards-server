@@ -1,6 +1,9 @@
 // input:
 {
   "type": "Gin Straight",
+  "name" : "test",
+  "public" : true,
+  "open" : true,
   "owners": [{
     "name": "Jon",
     "username": "jon.anderson",

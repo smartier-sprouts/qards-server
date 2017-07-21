@@ -6,7 +6,7 @@ const { findGame, dealCards } = require('../../db/helpers');
 const shuffle = require('./newDeck').shuffle;
 
 router.route('/:gameId') 
-  .get((req, response) => {
+  .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
     });
@@ -14,7 +14,6 @@ router.route('/:gameId')
     .then(game => {
       if (!game) { throw err; }
       let playerCount = game.owners.length;
-      let hands = {};
       let cardsPerPlayer = req.body.cardsPerPlayer || 7;
       let deck = require('./newDeck').deck;
       shuffle(deck);
@@ -43,7 +42,7 @@ router.route('/:gameId')
       game.owners.push(drawDeck);
       game.open = false;
 
-      dealCards(game._id, game, response);
+      dealCards(game._id, game, res);
 
     })
     .catch(err => console.log(`Error dealing cards: ${err}`));

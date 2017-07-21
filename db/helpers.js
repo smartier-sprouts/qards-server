@@ -15,7 +15,6 @@ const findGame = (id, resolve) => {
   Game.findById(id)
   .catch(err => console.log('Error finding game:', err))
   .then(game => {
-    console.log('Game found:', game);
     resolve(game);
   });
 };
@@ -24,7 +23,6 @@ const findAllGames = (res) => {
   Game.find({})
   .catch(err => console.log('Error finding game:', err))
   .then(games => {
-    console.log('Games found:', games);
     res.status(200).send(games);
   });
 };
@@ -70,9 +68,14 @@ const dealCards = (gameId, data, res) => {
   });
 };
 
-// const drawCard = (gameId, playerId, deckId) => {
-//   Game.findByIdAnd
-// };
+const updateGame = (id, data, res) => {
+  Game.findByIdAndUpdate(id, {owners: data.owners}, {'new': true})
+  .catch(err => console.log('Error updating and returning game', err))
+  .then(game => {
+    console.log(`Game ${id} updated`);
+    res.status(200).send(game);
+  });
+};
 
 module.exports = {
   findGame: findGame, 
@@ -80,5 +83,6 @@ module.exports = {
   findFilteredGames: findFilteredGames, 
   createGame: createGame, 
   addPlayer: addPlayer,
-  dealCards: dealCards
+  dealCards: dealCards,
+  updateGame: updateGame
 };
