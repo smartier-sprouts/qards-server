@@ -23,6 +23,8 @@ const gameSchema = new Schema({
   type: String,
   name: String,
   open: Boolean,
+  complete: Boolean,
+  winner: String,
   public: Boolean,
   owners: [ownerSchema]
 });

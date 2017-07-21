@@ -4,6 +4,8 @@
   "name" : "test",
   "public" : true,
   "open" : true,
+  "complete" : false,
+  "winner" : null,
   "owners": [{
     "name": "Jon",
     "username": "jon.anderson",
