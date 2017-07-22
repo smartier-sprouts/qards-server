@@ -100,7 +100,7 @@ router.route('/getHand/:gameId/:playerId')
       let playerId = req.params.playerId;
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === playerId) {
-          res.status(200).send(game.owners[i].cards);
+          res.status(200).send({discard: game.owners[game.owners.length - 2].cards[0], hand: game.owners[i].cards});
           return;
         }
       }
@@ -138,6 +138,22 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
       updateGame(req.params.gameId, game, res);
     })
     .catch(err => (`Error moving card: ${err}`));
+  });
+
+  
+router.route('/discardChange/:gameId')
+  .get((req, res) => {
+    const getGame = new Promise((resolve, reject) => {
+      findGame(req.params.gameId, resolve);
+    });
+    getGame
+    .then(game => {
+      if (!game) { console.log('could not find game'); }
+      let discardDeckIndex = game.owners.length - 2;
+      let lastDiscard = game.owners[discardDeckIndex].cards.length - 1;
+      res.status(200).send(game.owners[discardDeckIndex].cards[lastDiscard]);
+    })
+    .catch(err => console.log(`error getting top discard: ${err}`));
   });
 
 

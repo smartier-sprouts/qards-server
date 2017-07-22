@@ -1,52 +1,62 @@
 //output:
 
 {
-  "turn": 0,
-  "username": "jon.anderson",
-  "name": "Jon",
-  "_id": "596c42ca1932380d9c8f4f9c",
-  "cards": [
-    {
-      "suit": "♥",
-      "desc": "A",
-      "value" : "1",
-      "_id": "596c42ca1932380d9c8f4fa3"
+    "discard": {
+        "value": 11,
+        "desc": "J",
+        "suit": "♠",
+        "pictureId": 50,
+        "_id": "5972fcd8662e3ce2b97efb14"
     },
-    {
-      "suit": "♥",
-      "desc": "Q",
-      "value" : "12",
-      "_id": "596c42ca1932380d9c8f4fa2"
-    },
-    {
-      "suit": "♥",
-      "desc": "J",
-      "value" : "11",
-      "_id": "596c42ca1932380d9c8f4fa1"
-    },
-    {
-      "suit": "♥",
-      "desc": "10",
-      "value" : "10",
-      "_id": "596c42ca1932380d9c8f4fa0"
-    },
-    {
-      "suit": "♥",
-      "desc": "9",
-      "value" : "9",
-      "_id": "596c42ca1932380d9c8f4f9f"
-    },
-    {
-      "suit": "♥",
-      "desc": "8",
-      "value" : "8",
-      "_id": "596c42ca1932380d9c8f4f9e"
-    },
-    {
-      "suit": "♥",
-      "desc": "7",
-      "value" : "7",
-      "_id": "596c42ca1932380d9c8f4f9d"
-    }
-  ]
+    "hand": [
+        {
+            "value": 13,
+            "desc": "K",
+            "suit": "♥",
+            "pictureId": 13,
+            "_id": "5972fcd8662e3ce2b97efaf0"
+        },
+        {
+            "value": 7,
+            "desc": "7",
+            "suit": "♦",
+            "pictureId": 33,
+            "_id": "5972fcd8662e3ce2b97efaf5"
+        },
+        {
+            "value": 13,
+            "desc": "K",
+            "suit": "♠",
+            "pictureId": 52,
+            "_id": "5972fcd8662e3ce2b97efafa"
+        },
+        {
+            "value": 5,
+            "desc": "5",
+            "suit": "♠",
+            "pictureId": 44,
+            "_id": "5972fcd8662e3ce2b97efaff"
+        },
+        {
+            "value": 5,
+            "desc": "5",
+            "suit": "♦",
+            "pictureId": 31,
+            "_id": "5972fcd8662e3ce2b97efb04"
+        },
+        {
+            "value": 9,
+            "desc": "9",
+            "suit": "♠",
+            "pictureId": 48,
+            "_id": "5972fcd8662e3ce2b97efb09"
+        },
+        {
+            "value": 7,
+            "desc": "7",
+            "suit": "♠",
+            "pictureId": 46,
+            "_id": "5972fcd8662e3ce2b97efb0e"
+        }
+    ]
 }
