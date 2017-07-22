@@ -25,15 +25,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 //app.use('/', routes.auth);
 app.use('/api', api);
-//app.use('/api/profiles', routes.profiles);
-app.use('/api/games', games);
-app.use('/api/createGame', createGame);
-app.use('/api/addPlayer', addPlayer);
-app.use('/api/dealCards', dealCards);
-app.use('/api/getHand', getHand);
-app.use('/api/drawCard', drawCard);
-app.use('/api/discard', discard);
-
 
 //socket crap
 

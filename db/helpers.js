@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-// const Card = require('./index').card;
-// const Owner = require('./index').owner;
-// const Game = require('./index').game;
 const { card: Card, owner: Owner, game: Game } = require('./index');
 // const { Card, Owner, Game } = require('./index');
 // import { Card, Owner, Game } from './index.js';
@@ -52,8 +49,6 @@ const addPlayer = (gameId, player, res) => {
   .catch(err => console.log('Error adding player to existing game:', err))
   .then(game => {
     let playerId = game.owners[game.owners.length - 1]._id;
-    console.log(`Game ${gameId} updated to add player ${playerId}. Current players are: 
-    ${game.owners}`);
     res.status(200).send({gameId: game._id, playerId: game.owners[game.owners.length - 1]});
   });
 };
@@ -62,8 +57,6 @@ const dealCards = (gameId, data, res) => {
   Game.findByIdAndUpdate(gameId, data, {'new': true})
   .catch(err => console.log('Error updating and returning game', err))
   .then(game => {
-    console.log(`Game ${gameId} updated. Game data after cards have been dealt:
-    ${game}`);
     res.status(200).send('Cards dealt');
   });
 };
