@@ -3,10 +3,11 @@ class Deck {
     this.descs = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     this.suits = ['♥', '♣', '♦', '♠'];
     let cards = [];
+    let pictureId = 1;
 
     for (let suit = 0; suit < this.suits.length; suit++ ) {
       for (let desc = 0; desc < this.descs.length; desc++ ) {
-        cards.push({value: desc + 1, desc: this.descs[desc], suit: this.suits[suit]});
+        cards.push({value: desc + 1, desc: this.descs[desc], suit: this.suits[suit], pictureId: pictureId++});
       }
     }
 

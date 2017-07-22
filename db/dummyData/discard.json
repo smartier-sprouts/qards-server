@@ -1,0 +1,313 @@
+// output:
+
+{
+    "_id": "597158e39bf84a0011e99777",
+    "type": "Gin Straight",
+    "open": false,
+    "public": true,
+    "name": "Ballers",
+    "complete": true,
+    "winner": "Henri",
+    "__v": 0,
+    "owners": [
+        {
+            "name": "Henri",
+            "username": "henrisaccount",
+            "turn": 0,
+            "_id": "597158e39bf84a0011e99778",
+            "cards": [
+                {
+                    "desc": "10",
+                    "suit": "♣",
+                    "value": 10,
+                    "_id": "59716f8aca3c2e0011b31346"
+                },
+                {
+                    "desc": "J",
+                    "suit": "♣",
+                    "value": 11,
+                    "_id": "59716f8aca3c2e0011b31348"
+                },
+                {
+                    "desc": "Q",
+                    "suit": "♣",
+                    "value": 12,
+                    "_id": "59716f8aca3c2e0011b3134a"
+                },
+                {
+                    "desc": "K",
+                    "suit": "♣",
+                    "value": 13,
+                    "_id": "59716f8aca3c2e0011b3134c"
+                },
+                {
+                    "desc": "A",
+                    "suit": "♣",
+                    "value": 1,
+                    "_id": "59716f8aca3c2e0011b3134e"
+                },
+                {
+                    "desc": "9",
+                    "suit": "♣",
+                    "value": 9,
+                    "_id": "59716f8aca3c2e0011b31350"
+                },
+                {
+                    "desc": "8",
+                    "suit": "♣",
+                    "value": 8,
+                    "_id": "59716f8aca3c2e0011b31353"
+                }
+            ]
+        },
+        {
+            "turn": 1,
+            "username": "iH8Football",
+            "name": "James",
+            "_id": "59716ef6ca3c2e0011b31345",
+            "cards": [
+                {
+                    "desc": "8",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b31347"
+                },
+                {
+                    "desc": "9",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b31349"
+                },
+                {
+                    "desc": "7",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b3134b"
+                },
+                {
+                    "desc": "4",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b3134d"
+                },
+                {
+                    "desc": "4",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b3134f"
+                },
+                {
+                    "desc": "Q",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b31351"
+                },
+                {
+                    "desc": "5",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b31353"
+                }
+            ]
+        },
+        {
+            "name": "Discard",
+            "username": "Discard",
+            "turn": null,
+            "_id": "59716f8aca3c2e0011b31354",
+            "cards": [
+                {
+                    "desc": "5",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b31355"
+                }
+            ]
+        },
+        {
+            "name": "Draw",
+            "username": "Draw",
+            "turn": null,
+            "_id": "59716f8aca3c2e0011b31356",
+            "cards": [
+                {
+                    "desc": "A",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b3137b"
+                },
+                {
+                    "desc": "10",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b3137a"
+                },
+                {
+                    "desc": "8",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b31379"
+                },
+                {
+                    "desc": "Q",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b31378"
+                },
+                {
+                    "desc": "K",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b31377"
+                },
+                {
+                    "desc": "Q",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b31376"
+                },
+                {
+                    "desc": "9",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b31375"
+                },
+                {
+                    "desc": "2",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b31374"
+                },
+                {
+                    "desc": "6",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b31373"
+                },
+                {
+                    "desc": "8",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b31372"
+                },
+                {
+                    "desc": "A",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b31371"
+                },
+                {
+                    "desc": "A",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b31370"
+                },
+                {
+                    "desc": "5",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b3136f"
+                },
+                {
+                    "desc": "7",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b3136e"
+                },
+                {
+                    "desc": "J",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b3136d"
+                },
+                {
+                    "desc": "6",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b3136c"
+                },
+                {
+                    "desc": "10",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b3136b"
+                },
+                {
+                    "desc": "K",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b3136a"
+                },
+                {
+                    "desc": "A",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b31369"
+                },
+                {
+                    "desc": "5",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b31368"
+                },
+                {
+                    "desc": "3",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b31367"
+                },
+                {
+                    "desc": "7",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b31366"
+                },
+                {
+                    "desc": "6",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b31365"
+                },
+                {
+                    "desc": "4",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b31364"
+                },
+                {
+                    "desc": "2",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b31363"
+                },
+                {
+                    "desc": "9",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b31362"
+                },
+                {
+                    "desc": "7",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b31361"
+                },
+                {
+                    "desc": "3",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b31360"
+                },
+                {
+                    "desc": "2",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b3135f"
+                },
+                {
+                    "desc": "J",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b3135e"
+                },
+                {
+                    "desc": "8",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b3135d"
+                },
+                {
+                    "desc": "9",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b3135c"
+                },
+                {
+                    "desc": "10",
+                    "suit": "♣",
+                    "_id": "59716f8aca3c2e0011b3135b"
+                },
+                {
+                    "desc": "4",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b3135a"
+                },
+                {
+                    "desc": "10",
+                    "suit": "♠",
+                    "_id": "59716f8aca3c2e0011b31359"
+                },
+                {
+                    "desc": "K",
+                    "suit": "♦",
+                    "_id": "59716f8aca3c2e0011b31358"
+                },
+                {
+                    "desc": "K",
+                    "suit": "♥",
+                    "_id": "59716f8aca3c2e0011b31357"
+                }
+            ]
+        }
+    ]
+}

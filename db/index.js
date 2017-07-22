@@ -9,7 +9,9 @@ mongoose.Promise = global.Promise;
 
 const cardSchema = new Schema({
   desc: String,
-  suit: String
+  suit: String,
+  pictureId: Number,
+  value: Number
 });
 
 const ownerSchema = new Schema({
@@ -23,6 +25,8 @@ const gameSchema = new Schema({
   type: String,
   name: String,
   open: Boolean,
+  complete: Boolean,
+  winner: String,
   public: Boolean,
   owners: [ownerSchema]
 });

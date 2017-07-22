@@ -1,0 +1,62 @@
+//output:
+
+{
+    "discard": {
+        "value": 11,
+        "desc": "J",
+        "suit": "♠",
+        "pictureId": 50,
+        "_id": "5972fcd8662e3ce2b97efb14"
+    },
+    "hand": [
+        {
+            "value": 13,
+            "desc": "K",
+            "suit": "♥",
+            "pictureId": 13,
+            "_id": "5972fcd8662e3ce2b97efaf0"
+        },
+        {
+            "value": 7,
+            "desc": "7",
+            "suit": "♦",
+            "pictureId": 33,
+            "_id": "5972fcd8662e3ce2b97efaf5"
+        },
+        {
+            "value": 13,
+            "desc": "K",
+            "suit": "♠",
+            "pictureId": 52,
+            "_id": "5972fcd8662e3ce2b97efafa"
+        },
+        {
+            "value": 5,
+            "desc": "5",
+            "suit": "♠",
+            "pictureId": 44,
+            "_id": "5972fcd8662e3ce2b97efaff"
+        },
+        {
+            "value": 5,
+            "desc": "5",
+            "suit": "♦",
+            "pictureId": 31,
+            "_id": "5972fcd8662e3ce2b97efb04"
+        },
+        {
+            "value": 9,
+            "desc": "9",
+            "suit": "♠",
+            "pictureId": 48,
+            "_id": "5972fcd8662e3ce2b97efb09"
+        },
+        {
+            "value": 7,
+            "desc": "7",
+            "suit": "♠",
+            "pictureId": 46,
+            "_id": "5972fcd8662e3ce2b97efb0e"
+        }
+    ]
+}

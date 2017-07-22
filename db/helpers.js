@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-// const Card = require('./index').card;
-// const Owner = require('./index').owner;
-// const Game = require('./index').game;
 const { card: Card, owner: Owner, game: Game } = require('./index');
 // const { Card, Owner, Game } = require('./index');
 // import { Card, Owner, Game } from './index.js';
@@ -15,7 +12,6 @@ const findGame = (id, resolve) => {
   Game.findById(id)
   .catch(err => console.log('Error finding game:', err))
   .then(game => {
-    console.log('Game found:', game);
     resolve(game);
   });
 };
@@ -24,7 +20,6 @@ const findAllGames = (res) => {
   Game.find({})
   .catch(err => console.log('Error finding game:', err))
   .then(games => {
-    console.log('Games found:', games);
     res.status(200).send(games);
   });
 };
@@ -54,25 +49,26 @@ const addPlayer = (gameId, player, res) => {
   .catch(err => console.log('Error adding player to existing game:', err))
   .then(game => {
     let playerId = game.owners[game.owners.length - 1]._id;
-    console.log(`Game ${gameId} updated to add player ${playerId}. Current players are: 
-    ${game.owners}`);
     res.status(200).send({gameId: game._id, playerId: game.owners[game.owners.length - 1]});
   });
 };
 
 const dealCards = (gameId, data, res) => {
-  Game.findByIdAndUpdate(gameId, {'owners': data.owners}, {'new': true})
+  Game.findByIdAndUpdate(gameId, data, {'new': true})
   .catch(err => console.log('Error updating and returning game', err))
   .then(game => {
-    console.log(`Game ${gameId} updated. Game data after cards have been dealt:
-    ${game}`);
     res.status(200).send('Cards dealt');
   });
 };
 
-// const drawCard = (gameId, playerId, deckId) => {
-//   Game.findByIdAnd
-// };
+const updateGame = (id, data, res) => {
+  Game.findByIdAndUpdate(id, data, {'new': true})
+  .catch(err => console.log('Error updating and returning game', err))
+  .then(game => {
+    console.log(`Game ${id} updated`);
+    res.status(200).send(game);
+  });
+};
 
 module.exports = {
   findGame: findGame, 
@@ -80,5 +76,6 @@ module.exports = {
   findFilteredGames: findFilteredGames, 
   createGame: createGame, 
   addPlayer: addPlayer,
-  dealCards: dealCards
+  dealCards: dealCards,
+  updateGame: updateGame
 };
