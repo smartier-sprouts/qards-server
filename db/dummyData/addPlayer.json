@@ -7,3 +7,20 @@
     "username": "liftordie"
   }
 }
+
+/*
+
+output: 
+
+{
+    "gameId": "5973a2d2d6cb22001116bc85",
+    "player": {
+        "turn": 4,
+        "username": "iH8Football",
+        "name": "James",
+        "_id": "5973a303d6cb22001116bcda",
+        "cards": []
+    }
+}
+
+*/

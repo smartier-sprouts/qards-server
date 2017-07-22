@@ -38,7 +38,7 @@ const createGame = (data, res) => {
   .catch(err => console.log('Error saving game:', err))
   .then(game => {
     console.log('Game saved:', game);
-    res.status(201).send({gameId: game._id, playerId: game.owners[0]._id});
+    res.status(201).send({gameId: game._id, player: game.owners[0]});
   });
 };
 
@@ -49,7 +49,7 @@ const addPlayer = (gameId, player, res) => {
   .catch(err => console.log('Error adding player to existing game:', err))
   .then(game => {
     let playerId = game.owners[game.owners.length - 1]._id;
-    res.status(200).send({gameId: game._id, playerId: game.owners[game.owners.length - 1]});
+    res.status(200).send({gameId: game._id, player: game.owners[game.owners.length - 1]});
   });
 };
 
@@ -70,6 +70,15 @@ const updateGame = (id, data, res) => {
   });
 };
 
+const drawCard = (id, card, data, res) => {
+  Game.findByIdAndUpdate(id, data, {'new': true})
+  .catch(err => console.log('Error updating and returning game', err))
+  .then(game => {
+    console.log(`Game ${id} updated`);
+    res.status(200).send(card);
+  });
+};
+
 module.exports = {
   findGame: findGame, 
   findAllGames: findAllGames,
@@ -77,5 +86,6 @@ module.exports = {
   createGame: createGame, 
   addPlayer: addPlayer,
   dealCards: dealCards,
-  updateGame: updateGame
+  updateGame: updateGame,
+  drawCard: drawCard
 };

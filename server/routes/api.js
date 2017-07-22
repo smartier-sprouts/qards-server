@@ -56,7 +56,7 @@ router.route('/dealCards/:gameId')
       if (!game) { throw err; }
       let playerCount = game.owners.length;
       let cardsPerPlayer = req.body.cardsPerPlayer || 7;
-      let { deck } = require('./newDeck');
+      let deck = require('./newDeck').deck;
       shuffle(deck);
       
       for (let i = 0; i < cardsPerPlayer; i++) {
@@ -135,12 +135,12 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
           }
         }
       }
-      updateGame(req.params.gameId, game, res);
+      drawCard(req.params.gameId, card, game, res);
     })
     .catch(err => (`Error moving card: ${err}`));
   });
 
-  
+
 router.route('/discardChange/:gameId')
   .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
