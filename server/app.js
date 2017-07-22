@@ -31,23 +31,23 @@ app.use('/api', api);
 
 
 //socket crap
-
-const http = require('http');
-const server = http.createServer(app);
-const io = require('socket.io')(server);
-
-const socketIdsInRoom = (name) => {
-  var socketIds = io.nsps['/'].adapter.rooms[name];
-  if (socketIds) {
-    var collection = [];
-    for (var key in socketIds) {
-      collection.push(key);
-    }
-    return collection;
-  } else {
-    return [];
-  }
-};
+//
+// const http = require('http');
+// const server = http.createServer(app);
+// const io = require('socket.io')(server);
+//
+// const socketIdsInRoom = (name) => {
+//   var socketIds = io.nsps['/'].adapter.rooms[name];
+//   if (socketIds) {
+//     var collection = [];
+//     for (var key in socketIds) {
+//       collection.push(key);
+//     }
+//     return collection;
+//   } else {
+//     return [];
+//   }
+// };
 
 // io.on('connection', function(socket) {
 //   console.log('connection');
@@ -76,13 +76,3 @@ const socketIdsInRoom = (name) => {
 //     to.emit('exchange', data);
 //   });
 // });
-
-io.on('connection', (socket) => {
-  console.log('Client connected');
-  socket.on('disconnect', () => console.log('Client disconnected'));
-});
-
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
-
-
-module.exports = app;
