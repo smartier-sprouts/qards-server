@@ -76,3 +76,5 @@ app.use('/api', api);
 //     to.emit('exchange', data);
 //   });
 // });
+
+module.exports = app;
