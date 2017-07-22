@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-const { findFilteredGames, findGame, createGame, addPlayer, dealCards, updateGame } = require('../../db/helpers');
+const { findFilteredGames, findGame, createGame, addPlayer, dealCards, updateGame, drawCard } = require('../../db/helpers');
 const { isHandWinning } = require('./isHandWinning');
 const { shuffle } = require('./newDeck');
 
@@ -110,7 +110,6 @@ router.route('/getHand/:gameId/:playerId')
 
 router.route('/drawCard/:gameId/:playerId/:deckName')
   .get((req, res) => {
-    console.log(req.params);
     const getGame = new Promise((resolve, reject) => {
       console.log('gameId', req.params.gameId);
       findGame(req.params.gameId, resolve);
@@ -118,7 +117,16 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
     getGame
     .then(game => {
       if (!game) { throw err; }
-      let card;
+      let card, deckIndex;
+      
+      console.log('deckName is', req.params.deckName);
+      if (req.params.deckName = 'Draw') {
+        deckIndex = game.owners.length - 1;
+      } else if (req.params.deckName = 'Discard') {
+        deckIndex = game.owners.length - 2;
+      } else {
+        res.status(404).send('Deck name does not exist');
+      }
 
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === req.params.playerId) {
@@ -126,13 +134,10 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
             res.status(403).send('You have already drawn a card this turn');
             return; 
           }
-          for (let j = game.owners.length - 1; j >= 0; j--) {
-            if (game.owners[j].name === req.params.deckName) {
-              card = game.owners[j].cards.pop();
-              game.owners[i].cards.push(card);
-              break;
-            }
-          }
+          card = game.owners[deckIndex].cards.pop();
+          console.log(card);
+          game.owners[i].cards.push(card);
+  
         }
       }
       drawCard(req.params.gameId, card, game, res);
