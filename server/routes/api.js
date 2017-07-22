@@ -56,7 +56,7 @@ router.route('/dealCards/:gameId')
       if (!game) { throw err; }
       let playerCount = game.owners.length;
       let cardsPerPlayer = req.body.cardsPerPlayer || 7;
-      let deck = require('./newDeck').deck;
+      let deck = require('./newDeck').deck.slice();
       shuffle(deck);
       
       for (let i = 0; i < cardsPerPlayer; i++) {
