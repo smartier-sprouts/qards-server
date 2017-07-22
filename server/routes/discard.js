@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const { findGame, updateGame } = require('../../db/helpers');
-import isHandWinning from './gameWinningHand';
+const { isHandWinning } = require('./gameWinningHand');
 
 router.route('/:gameId/:playerId/:cardId')
   .get((req, res) => {

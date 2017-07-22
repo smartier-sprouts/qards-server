@@ -55,4 +55,4 @@ const areCardsRun = (...cards) => {
   }
 };
 
-export default isHandWinning;
+module.exports = { isHandWinning };
