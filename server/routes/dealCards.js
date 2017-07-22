@@ -41,12 +41,10 @@ router.route('/:gameId')
       game.owners.push(discardDeck);
       game.owners.push(drawDeck);
       game.open = false;
-
       dealCards(game._id, game, res);
 
     })
     .catch(err => console.log(`Error dealing cards: ${err}`));
   });
-
 
 module.exports = router;

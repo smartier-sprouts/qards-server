@@ -59,7 +59,7 @@ const addPlayer = (gameId, player, res) => {
 };
 
 const dealCards = (gameId, data, res) => {
-  Game.findByIdAndUpdate(gameId, {'owners': data.owners}, {'new': true})
+  Game.findByIdAndUpdate(gameId, data, {'new': true})
   .catch(err => console.log('Error updating and returning game', err))
   .then(game => {
     console.log(`Game ${gameId} updated. Game data after cards have been dealt:
@@ -69,7 +69,7 @@ const dealCards = (gameId, data, res) => {
 };
 
 const updateGame = (id, data, res) => {
-  Game.findByIdAndUpdate(id, {owners: data.owners}, {'new': true})
+  Game.findByIdAndUpdate(id, data, {'new': true})
   .catch(err => console.log('Error updating and returning game', err))
   .then(game => {
     console.log(`Game ${id} updated`);

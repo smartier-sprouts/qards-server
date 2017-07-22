@@ -1,6 +1,9 @@
 //input:
 
 {
-  "name": "Evan",
-  "username": "ev.money"
+  "gameId": "597256e9178b5887a167de03",
+  "player" : {
+    "name": "Jake",
+    "username": "liftordie"
+  }
 }

@@ -1,3 +1,4 @@
+
 const isHandWinning = (hand) => {
   for (let i = 0; i < hand.length; i++) {
     for (let j = i + 1; j < hand.length; j++) {
@@ -37,10 +38,10 @@ const areCardsRun = (...cards) => {
   } else {
     let withAceAtValueOne = cards.reduce((acc, card, i) => (cards[i + 1] ? card.value === cards[i + 1].value - 1 && card.suit === cards[i + 1].suit && acc : acc), true);
     if (withAceAtValueOne) {
-      return withAceAtValueOne;
+      return true;
     } else {
-      cards[0] = Object.assign({}, cards[0]);
-      cards[0].value = 14;
+      console.log('evaluates to false');
+      cards[0] = {suit: cards[0].suit, value: 14, name: 'A'};
       cards.sort((cardA, cardB) => {
       if (cardA.value < cardB.value) {
         return -1;

@@ -17,14 +17,12 @@ router.route('/:gameId/:playerId/:deckName')
 
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === req.params.playerId) {
-          console.log('found drawing player');
           if (game.owners[i].cards.length > 7) { 
             res.status(403).send('You have already drawn a card this turn');
             return; 
           }
           for (let j = game.owners.length - 1; j >= 0; j--) {
             if (game.owners[j].name === req.params.deckName) {
-              console.log('found approrpiate deck');
               card = game.owners[j].cards.pop();
               game.owners[i].cards.push(card);
               break;
@@ -36,7 +34,5 @@ router.route('/:gameId/:playerId/:deckName')
     })
     .catch(err => (`Error moving card: ${err}`));
   });
-  
-
 
 module.exports = router;
