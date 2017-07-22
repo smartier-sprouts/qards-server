@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const { findGame, updateGame } = require('../../db/helpers');
 
-router.route('/:gameId/:playerId/:drawDeckId')
+router.route('/:gameId/:playerId/:deckName')
   .get((req, res) => {
     console.log(req.params);
     const getGame = new Promise((resolve, reject) => {
@@ -13,23 +13,18 @@ router.route('/:gameId/:playerId/:drawDeckId')
     getGame
     .then(game => {
       if (!game) { throw err; }
-      console.log('game passed back to route', game);
       let card;
 
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === req.params.playerId) {
-          console.log('found right player deck to insert draw card');
           if (game.owners[i].cards.length > 7) { 
             res.status(403).send('You have already drawn a card this turn');
             return; 
           }
           for (let j = game.owners.length - 1; j >= 0; j--) {
-            if (game.owners[j]._id.toString() === req.params.drawDeckId) {
-              console.log('found right draw deck');
+            if (game.owners[j].name === req.params.deckName) {
               card = game.owners[j].cards.pop();
-              console.log(`drew ${card} from deck ${req.params.drawDeckId}`);
               game.owners[i].cards.push(card);
-              console.log(`${card} inserted into deck ${req.params.playerId}`);
               break;
             }
           }

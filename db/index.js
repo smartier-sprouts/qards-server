@@ -9,7 +9,9 @@ mongoose.Promise = global.Promise;
 
 const cardSchema = new Schema({
   desc: String,
-  suit: String
+  suit: String,
+  pictureId: Number,
+  value: Number
 });
 
 const ownerSchema = new Schema({

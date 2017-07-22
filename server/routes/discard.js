@@ -6,7 +6,6 @@ import isHandWinning from './gameWinningHand';
 
 router.route('/:gameId/:playerId/:cardId')
   .get((req, res) => {
-    console.log('in discard');
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
     });
@@ -27,6 +26,7 @@ router.route('/:gameId/:playerId/:cardId')
                 game.complete = true;
                 game.winner = game.owners[i].name;
                 updateGame(req.params.gameId, game, res);
+                break;
               }
             }
           }
