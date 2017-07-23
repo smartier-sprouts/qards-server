@@ -133,11 +133,11 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
           if (game.owners[i].cards.length > 7) { 
             res.status(403).send('You have already drawn a card this turn');
             return; 
+          } else {
+            card = game.owners[deckIndex].cards.pop();
+            console.log(card);
+            game.owners[i].cards.push(card);
           }
-          card = game.owners[deckIndex].cards.pop();
-          console.log(card);
-          game.owners[i].cards.push(card);
-  
         }
       }
       drawCard(req.params.gameId, card, game, res);
