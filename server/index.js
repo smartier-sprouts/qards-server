@@ -15,7 +15,7 @@ io.on('connection', (socket) => {
 
   socket.on('create', function(room) {
     socket.join(room);
-    io.to(room, 'a new user has joined the room')
+    io.to(room, 'a new user has joined the room');
   });
 
 });
