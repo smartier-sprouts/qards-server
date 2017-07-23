@@ -133,11 +133,11 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
           if (game.owners[i].cards.length > 7) { 
             res.status(403).send('You have already drawn a card this turn');
             return; 
+          } else {
+            card = game.owners[deckIndex].cards.pop();
+            console.log(card);
+            game.owners[i].cards.push(card);
           }
-          card = game.owners[deckIndex].cards.pop();
-          console.log(card);
-          game.owners[i].cards.push(card);
-  
         }
       }
       drawCard(req.params.gameId, card, game, res);
@@ -175,17 +175,19 @@ router.route('/discard/:gameId/:playerId/:cardId')
         if (game.owners[i]._id.toString() === req.params.playerId) {
           if (game.owners[i].cards.length === 7) {
             res.status(403).send('You have already discarded this turn');
-          }
-          for (let j = 0; j < game.owners[i].cards.length; j++) {
-            if (game.owners[i].cards[j]._id.toString() === req.params.cardId) {
-              card = game.owners[i].cards.splice(j, 1)[0];
-              if (isHandWinning(game.owners[i].cards)) {
-                game.complete = true;
-                game.winner = game.owners[i].name;
-                updateGame(req.params.gameId, game, res);
-                return;
+          } else {
+            for (let j = 0; j < game.owners[i].cards.length; j++) {
+              if (game.owners[i].cards[j]._id.toString() === req.params.cardId) {
+                card = game.owners[i].cards.splice(j, 1)[0];
+                if (isHandWinning(game.owners[i].cards)) {
+                  game.complete = true;
+                  game.winner = game.owners[i].name;
+                  updateGame(req.params.gameId, game, res);
+                  return;
+                } else {
+                  console.log('hand did not win');
+                }
               }
-              console.log('hand did not win');
             }
           }
         }
