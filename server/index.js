@@ -14,6 +14,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => console.log('Client disconnected'));
 
   socket.on('create', function(room) {
+    console.log('new player joins');
     socket.join(room);
     io.to(room, 'a new user has joined the room');
   });
