@@ -12,6 +12,11 @@ const io = require('socket.io').listen(server);
 io.on('connection', (socket) => {
   console.log('Client connected');
   socket.on('disconnect', () => console.log('Client disconnected'));
-});
 
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+  socket.on('create', function(room) {
+    socket.join(room);
+    io.to(room, 'a new user has joined the room')
+  });
+
+});
+//setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
