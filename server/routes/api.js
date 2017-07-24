@@ -135,30 +135,21 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
             return; 
           } else {
             card = game.owners[deckIndex].cards.pop();
-            console.log(card);
             game.owners[i].cards.push(card);
+            if (game.owners[deckIndex].cards.length === 0) {
+              console.log('Player just removed the last card from the deck. Pulling cards from discard pile and shuffling…');
+              game.owners[deckIndex].cards = game.owners[deckIndex - 1].cards.splice(0, game.owners[deckIndex].cards.length - 2);
+              console.log('All cards except top removed from discard deck');
+              shuffle(game.owners[deckIndex].cards);
+              console.log('Shuffled');
+              console.log(`Draw deck now has ${game.owners[deckIndex].cards.length} cards in it.`);
+            }
           }
         }
       }
       drawCard(req.params.gameId, card, game, res);
     })
     .catch(err => (`Error moving card: ${err}`));
-  });
-
-
-router.route('/discardChange/:gameId')
-  .get((req, res) => {
-    const getGame = new Promise((resolve, reject) => {
-      findGame(req.params.gameId, resolve);
-    });
-    getGame
-    .then(game => {
-      if (!game) { console.log('could not find game'); }
-      let discardDeckIndex = game.owners.length - 2;
-      let lastDiscard = game.owners[discardDeckIndex].cards.length - 1;
-      res.status(200).send(game.owners[discardDeckIndex].cards[lastDiscard]);
-    })
-    .catch(err => console.log(`error getting top discard: ${err}`));
   });
 
 
@@ -186,6 +177,7 @@ router.route('/discard/:gameId/:playerId/:cardId')
                   return;
                 } else {
                   console.log('hand did not win');
+                  break;
                 }
               }
             }
@@ -203,6 +195,22 @@ router.route('/discard/:gameId/:playerId/:cardId')
       return;
     })
     .catch(err => (`Error moving card: ${err}`));
+  });
+
+
+router.route('/discardChange/:gameId')
+  .get((req, res) => {
+    const getGame = new Promise((resolve, reject) => {
+      findGame(req.params.gameId, resolve);
+    });
+    getGame
+    .then(game => {
+      if (!game) { console.log('could not find game'); }
+      let discardDeckIndex = game.owners.length - 2;
+      let lastDiscard = game.owners[discardDeckIndex].cards.length - 1;
+      res.status(200).send(game.owners[discardDeckIndex].cards[lastDiscard]);
+    })
+    .catch(err => console.log(`error getting top discard: ${err}`));
   });
 
 module.exports = router;
