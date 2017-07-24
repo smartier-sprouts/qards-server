@@ -15,7 +15,10 @@ io.on('connection', (socket) => {
 
 const emitPlayerNumber = (gameId) => {
   console.log('emiting player number to ', gameId);
-  io.emit(gameId, 5);
+  io.emit(gameId, {player: 5});
+  setInterval(()=> {
+    io.emit(gameId, {player: 5});
+  },1000);
 }
 
 
