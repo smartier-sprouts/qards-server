@@ -134,17 +134,23 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
             res.status(403).send('You have already drawn a card this turn');
             return; 
           } else {
-            card = game.owners[deckIndex].cards.pop();
-            game.owners[i].cards.push(card);
-            if (game.owners[deckIndex].cards.length === 0) {
-              console.log('Player just removed the last card from the deck. Pulling cards from discard pile and shuffling…');
+            if (req.params.deckName === 'Draw') {
+              card = game.owners[deckIndex].cards.pop();
+              game.owners[i].cards.push(card);
+              console.log(`Draw pile now has ${game.owners[deckIndex].cards.length} cards in its pile.`);              
               console.log(`Discard pile now has ${game.owners[deckIndex - 1].cards.length} cards in its pile.`);
-              game.owners[deckIndex].cards = game.owners[deckIndex - 1].cards.splice(0, game.owners[deckIndex - 1].cards.length - 2);
-              console.log('All cards except top removed from discard deck');
-              shuffle(game.owners[deckIndex].cards);
-              console.log('Shuffled');
+              if (game.owners[deckIndex].cards.length === 0) {
+                console.log('Player just removed the last card from the deck. Pulling cards from discard pile and shuffling…');
+                game.owners[deckIndex].cards = game.owners[deckIndex - 1].cards.splice(0, game.owners[deckIndex - 1].cards.length - 2);
+                console.log('All cards except top removed from discard deck');
+                shuffle(game.owners[deckIndex].cards);
+                console.log('Shuffled');
+              }
+              console.log(`Draw deck now has ${game.owners[deckIndex].cards.length} cards in it.`);
+            } else {
+              card = game.owners[deckIndex].cards.pop();
+              game.owners[i].cards.push(card);
             }
-            console.log(`Draw deck now has ${game.owners[deckIndex].cards.length} cards in it.`);
           }
         }
       }
@@ -199,7 +205,7 @@ router.route('/discard/:gameId/:playerId/:cardId')
   });
 
 
-router.route('/discardChange/:gameId')
+router.route('/discardChange/:gameId/:turnNum')
   .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
@@ -209,7 +215,14 @@ router.route('/discardChange/:gameId')
       if (!game) { console.log('could not find game'); }
       let discardDeckIndex = game.owners.length - 2;
       let lastDiscard = game.owners[discardDeckIndex].cards.length - 1;
-      res.status(200).send(game.owners[discardDeckIndex].cards[lastDiscard]);
+      console.log(`turn number is ${req.params.turnNum}`);
+      game.owners.forEach(player => {
+        if (player.turn === req.params.turnNum) {
+          res.status(200).send({activePlayerName: player.name, topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]});
+          return;
+        }
+      });
+      res.status(404).send('Player not found');
     })
     .catch(err => console.log(`error getting top discard: ${err}`));
   });

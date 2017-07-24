@@ -40,7 +40,6 @@ const areCardsRun = (...cards) => {
     if (withAceAtValueOne) {
       return true;
     } else {
-      console.log('evaluates to false');
       cards[0] = {suit: cards[0].suit, value: 14, name: 'A'};
       cards.sort((cardA, cardB) => {
       if (cardA.value < cardB.value) {
