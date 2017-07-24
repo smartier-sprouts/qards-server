@@ -35,8 +35,7 @@ router.route('/addPlayer')
     let player = req.body.player;
     const getGame = new Promise((resolve, reject) => {
       findGame(gameId, resolve);
-    });
-    getGame
+    })
     .then(game => {
       console.log('Adding player to db');
       player.turn = game.owners.length;
@@ -50,8 +49,7 @@ router.route('/dealCards/:gameId')
   .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
-    });
-    getGame
+    })
     .then(game => {
       if (!game) { throw err; }
       let playerCount = game.owners.length;
@@ -113,8 +111,7 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
     const getGame = new Promise((resolve, reject) => {
       console.log('gameId', req.params.gameId);
       findGame(req.params.gameId, resolve);
-    });
-    getGame
+    })
     .then(game => {
       if (!game) { throw err; }
       let card, deckIndex;
@@ -164,8 +161,7 @@ router.route('/discard/:gameId/:playerId/:cardId')
   .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
-    });
-    getGame
+    })
     .then(game => {
       if (!game) { throw err; }
       let card, hand, playerName;
@@ -209,8 +205,7 @@ router.route('/discardChange/:gameId/:turnNum')
   .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
-    });
-    getGame
+    })
     .then(game => {
       if (!game) { console.log('could not find game'); }
       let discardDeckIndex = game.owners.length - 2;
@@ -218,7 +213,12 @@ router.route('/discardChange/:gameId/:turnNum')
       console.log(`turn number is ${req.params.turnNum}`);
       game.owners.forEach(player => {
         if (player.turn === req.params.turnNum) {
-          res.status(200).send({winner: game.winner, activePlayerName: player.name, topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]});
+          res.status(200).send({
+            winner: game.winner, 
+            turnNum: req.params.turnNum, 
+            activePlayerName: player.name, 
+            topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]
+          });
           return;
         }
       });
