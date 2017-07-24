@@ -218,7 +218,7 @@ router.route('/discardChange/:gameId/:turnNum')
       console.log(`turn number is ${req.params.turnNum}`);
       game.owners.forEach(player => {
         if (player.turn === req.params.turnNum) {
-          res.status(200).send({activePlayerName: player.name, topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]});
+          res.status(200).send({winner: game.winner, activePlayerName: player.name, topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]});
           return;
         }
       });
