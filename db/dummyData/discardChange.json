@@ -1,0 +1,9 @@
+{
+  "activePlayerName": "Jon",
+  "topOfDiscard": {
+      "desc": "A",
+      "suit": "♣",
+      "value": 1,
+      "_id": "59716f8aca3c2e0011b3134e"
+    }
+}
