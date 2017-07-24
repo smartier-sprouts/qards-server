@@ -138,12 +138,13 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
             game.owners[i].cards.push(card);
             if (game.owners[deckIndex].cards.length === 0) {
               console.log('Player just removed the last card from the deck. Pulling cards from discard pile and shuffling…');
-              game.owners[deckIndex].cards = game.owners[deckIndex - 1].cards.splice(0, game.owners[deckIndex].cards.length - 2);
+              console.log(`Discard pile now has ${game.owners[deckIndex - 1].cards.length} cards in its pile.`);
+              game.owners[deckIndex].cards = game.owners[deckIndex - 1].cards.splice(0, game.owners[deckIndex - 1].cards.length - 2);
               console.log('All cards except top removed from discard deck');
               shuffle(game.owners[deckIndex].cards);
               console.log('Shuffled');
-              console.log(`Draw deck now has ${game.owners[deckIndex].cards.length} cards in it.`);
             }
+            console.log(`Draw deck now has ${game.owners[deckIndex].cards.length} cards in it.`);
           }
         }
       }
