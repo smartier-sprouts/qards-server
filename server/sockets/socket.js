@@ -15,7 +15,7 @@ io.on('connection', (socket) => {
 
 const emitPlayerNumber = (gameId) => {
   console.log('emiting player number to ', gameId);
-  socket.emit(gameId, 5);
+  io.emit(gameId, 5);
 }
 
 
