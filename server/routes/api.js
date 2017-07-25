@@ -125,14 +125,11 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
     })
     .then(game => {
       if (!game) { throw err; }
-      let card, deckIndex;
+      let card;
+      let discardIndex = game.owners.length - 2;
+      let drawIndex = game.owners.length - 1;
       
       console.log('deckName is', req.params.deckName);
-      if (req.params.deckName = 'Draw') {
-        deckIndex = game.owners.length - 1;
-      } else if (req.params.deckName = 'Discard') {
-        deckIndex = game.owners.length - 2;
-      }
 
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === req.params.playerId) {
@@ -141,20 +138,20 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
             return; 
           } else {
             if (req.params.deckName === 'Draw') {
-              card = game.owners[deckIndex].cards.pop();
+              card = game.owners[drawIndex].cards.pop();
               game.owners[i].cards.push(card);
-              console.log(`Draw pile now has ${game.owners[deckIndex].cards.length} cards in its pile.`);              
-              console.log(`Discard pile now has ${game.owners[deckIndex - 1].cards.length} cards in its pile.`);
-              if (game.owners[deckIndex].cards.length === 0) {
+              console.log(`Draw pile now has ${game.owners[drawIndex].cards.length} cards in its pile.`);              
+              console.log(`Discard pile now has ${game.owners[drawIndex - 1].cards.length} cards in its pile.`);
+              if (game.owners[drawIndex].cards.length === 0) {
                 console.log('Player just removed the last card from the deck. Pulling cards from discard pile and shuffling…');
-                game.owners[deckIndex].cards = game.owners[deckIndex - 1].cards.splice(0, game.owners[deckIndex - 1].cards.length - 2);
+                game.owners[drawIndex].cards = game.owners[discardIndex].cards.splice(0, game.owners[discardIndex].cards.length - 2);
                 console.log('All cards except top removed from discard deck');
-                shuffle(game.owners[deckIndex].cards);
+                shuffle(game.owners[drawIndex].cards);
                 console.log('Shuffled');
               }
               console.log(`Draw deck now has ${game.owners[deckIndex].cards.length} cards in it.`);
             } else {
-              card = game.owners[deckIndex].cards.pop();
+              card = game.owners[discardIndex].cards.pop();
               game.owners[i].cards.push(card);
             }
           }
