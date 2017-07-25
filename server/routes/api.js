@@ -132,8 +132,6 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
         deckIndex = game.owners.length - 1;
       } else if (req.params.deckName = 'Discard') {
         deckIndex = game.owners.length - 2;
-      } else {
-        res.status(404).send('Deck name does not exist');
       }
 
       for (let i = 0; i < game.owners.length; i++) {
@@ -222,18 +220,21 @@ router.route('/discardChange/:gameId')
       if (!game) { console.log('could not find game'); }
       let discardDeckIndex = game.owners.length - 2;
       let lastDiscard = game.owners[discardDeckIndex].cards.length - 1;
+      let activePlayerName;
       console.log(`turn number is ${game.turnNum}`);
       game.owners.forEach(player => {
         if (player.turn === game.turnNum) {
-          res.status(200).send({
-            winner: game.winner, 
-            turnNum: game.turnNum, 
-            activePlayerName: player.name, 
-            topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]
-          });
-          return;
+          activePlayerName = player.name;
         }
       });
+
+      res.status(200).send({
+        winner: game.winner, 
+        turnNum: game.turnNum, 
+        activePlayerName: activePlayerName, 
+        topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]
+      });
+
     })
     .catch(err => {
       console.log(`error getting top discard: ${err}`);
