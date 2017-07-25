@@ -87,14 +87,24 @@ router.route('/dealCards/:gameId')
     .catch(err => console.log(`Error dealing cards: ${err}`));
   });
 
+router.route('/hasStarted/:gameId')
+  .get((req, res) => {  
+    let gameId = req.params.gameId;
+    const getGame = new Promise((resolve, reject) => {
+      findGame(gameId, resolve);
+    })
+    .then(game => {
+      res.status(200).send(!game.open);
+    });
+  });
+  
 
 router.route('/getHand/:gameId/:playerId')
   .get((req, res) => {
     let gameId = req.params.gameId;
     const getGame = new Promise((resolve, reject) => {
       findGame(gameId, resolve);
-    });
-    getGame
+    })
     .then(game => {
       let playerId = req.params.playerId;
       for (let i = 0; i < game.owners.length; i++) {
