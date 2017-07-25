@@ -14,17 +14,7 @@ io.on('connection', (socket) => {
 });
 
 const emitPlayerNumber = (gameId) => {
-  console.log('emiting player number to ', gameId);
-  // io.on('connection', (socket) => {
-  //   console.log('Client connected');
-  //
-  //   io.emit(gameId, {player: 5});
-  //
-  //   setInterval(()=> {
-  //     io.emit(gameId, {player: 5});
-  //   }, 1000);
-  //
-  // });
+  io.emit('test', { hello: 'world' });
 };
 
 
