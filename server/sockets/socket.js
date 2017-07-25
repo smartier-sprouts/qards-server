@@ -1,4 +1,4 @@
-const EventEmitter = require('events').EventEmitter
+const EventEmitter = require('events').EventEmitter;
 const server = require('../index.js').server;
 
 const io = require('socket.io').listen(server);
@@ -20,6 +20,8 @@ io.on('connection', (socket) => {
    socket.emit(data);
  });
 });
+
+setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
 
 const emitPlayerNumber = (gameId) => {
 
