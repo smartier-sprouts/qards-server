@@ -80,6 +80,7 @@ router.route('/dealCards/:gameId')
       game.owners.push(discardDeck);
       game.owners.push(drawDeck);
       game.open = false;
+      game.turnNum = 0;
       dealCards(game._id, game, res);
 
     })
@@ -165,6 +166,7 @@ router.route('/discard/:gameId/:playerId/:cardId')
     .then(game => {
       if (!game) { throw err; }
       let card, hand, playerName;
+      game.turnNum = (game.turnNum === game.owners.length - 3) ? 0 : game.turnNum++;
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === req.params.playerId) {
           if (game.owners[i].cards.length === 7) {
@@ -201,7 +203,7 @@ router.route('/discard/:gameId/:playerId/:cardId')
   });
 
 
-router.route('/discardChange/:gameId/:turnNum')
+router.route('/discardChange/:gameId')
   .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
@@ -215,7 +217,7 @@ router.route('/discardChange/:gameId/:turnNum')
         if (player.turn === req.params.turnNum) {
           res.status(200).send({
             winner: game.winner, 
-            turnNum: req.params.turnNum, 
+            turnNum: game.turnNum, 
             activePlayerName: player.name, 
             topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]
           });
