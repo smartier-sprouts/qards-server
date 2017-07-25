@@ -4,6 +4,7 @@ const router = express.Router();
 const { findFilteredGames, findGame, createGame, addPlayer, dealCards, updateGame, drawCard } = require('../../db/helpers');
 const { isHandWinning } = require('./isHandWinning');
 const { shuffle } = require('./newDeck');
+const { emitPlayerNumber } = require('../sockets/socket.js')
 
 
 router.route('/')
@@ -15,7 +16,7 @@ router.route('/')
     res.status(201).send({ data: 'Posted!' });
   });
 
-  
+
 router.route('/games')
   .get((req, res) => {
     findFilteredGames({open: true, public: true}, res);
@@ -40,12 +41,13 @@ router.route('/addPlayer')
       console.log('Adding player to db');
       player.turn = game.owners.length;
       addPlayer(gameId, player, res);
+      emitPlayerNumber(gameId);
     })
     .catch(err => console.log(`Error adding player: ${err}`));
   });
 
 
-router.route('/dealCards/:gameId') 
+router.route('/dealCards/:gameId')
   .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
@@ -56,7 +58,7 @@ router.route('/dealCards/:gameId')
       let cardsPerPlayer = req.body.cardsPerPlayer || 7;
       let deck = require('./newDeck').deck.slice();
       shuffle(deck);
-      
+
       for (let i = 0; i < cardsPerPlayer; i++) {
         for (let j = 0; j < playerCount; j++) {
           game.owners[j].cards.push(deck.pop());
@@ -126,7 +128,7 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
     .then(game => {
       if (!game) { throw err; }
       let card, deckIndex;
-      
+
       console.log('deckName is', req.params.deckName);
       if (req.params.deckName = 'Draw') {
         deckIndex = game.owners.length - 1;
@@ -136,9 +138,9 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
 
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === req.params.playerId) {
-          if (game.owners[i].cards.length > 7) { 
+          if (game.owners[i].cards.length > 7) {
             res.status(403).send('You have already drawn a card this turn');
-            return; 
+            return;
           } else {
             if (req.params.deckName === 'Draw') {
               card = game.owners[deckIndex].cards.pop();
