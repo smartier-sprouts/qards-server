@@ -80,6 +80,7 @@ router.route('/dealCards/:gameId')
       game.owners.push(discardDeck);
       game.owners.push(drawDeck);
       game.open = false;
+      game.turnNum = 0;
       dealCards(game._id, game, res);
 
     })
@@ -165,6 +166,7 @@ router.route('/discard/:gameId/:playerId/:cardId')
     .then(game => {
       if (!game) { throw err; }
       let card, hand, playerName;
+      game.turnNum = (game.turnNum === game.owners.length - 3) ? 0 : ++game.turnNum;
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === req.params.playerId) {
           if (game.owners[i].cards.length === 7) {
@@ -201,7 +203,7 @@ router.route('/discard/:gameId/:playerId/:cardId')
   });
 
 
-router.route('/discardChange/:gameId/:turnNum')
+router.route('/discardChange/:gameId')
   .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
@@ -210,21 +212,23 @@ router.route('/discardChange/:gameId/:turnNum')
       if (!game) { console.log('could not find game'); }
       let discardDeckIndex = game.owners.length - 2;
       let lastDiscard = game.owners[discardDeckIndex].cards.length - 1;
-      console.log(`turn number is ${req.params.turnNum}`);
+      console.log(`turn number is ${game.turnNum}`);
       game.owners.forEach(player => {
-        if (player.turn === req.params.turnNum) {
+        if (player.turn === game.turnNum) {
           res.status(200).send({
             winner: game.winner, 
-            turnNum: req.params.turnNum, 
+            turnNum: game.turnNum, 
             activePlayerName: player.name, 
             topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]
           });
           return;
         }
       });
-      res.status(404).send('Player not found');
     })
-    .catch(err => console.log(`error getting top discard: ${err}`));
+    .catch(err => {
+      console.log(`error getting top discard: ${err}`);
+      res.status(404).send('Player not found');
+    });
   });
 
 module.exports = router;
