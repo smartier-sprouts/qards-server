@@ -166,7 +166,7 @@ router.route('/discard/:gameId/:playerId/:cardId')
     .then(game => {
       if (!game) { throw err; }
       let card, hand, playerName;
-      game.turnNum = (game.turnNum === game.owners.length - 3) ? 0 : game.turnNum++;
+      game.turnNum = (game.turnNum === game.owners.length - 3) ? 0 : ++game.turnNum;
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === req.params.playerId) {
           if (game.owners[i].cards.length === 7) {
