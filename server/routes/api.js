@@ -212,9 +212,9 @@ router.route('/discardChange/:gameId')
       if (!game) { console.log('could not find game'); }
       let discardDeckIndex = game.owners.length - 2;
       let lastDiscard = game.owners[discardDeckIndex].cards.length - 1;
-      console.log(`turn number is ${req.params.turnNum}`);
+      console.log(`turn number is ${game.turnNum}`);
       game.owners.forEach(player => {
-        if (player.turn === req.params.turnNum) {
+        if (player.turn === game.turnNum) {
           res.status(200).send({
             winner: game.winner, 
             turnNum: game.turnNum, 
@@ -224,9 +224,11 @@ router.route('/discardChange/:gameId')
           return;
         }
       });
-      res.status(404).send('Player not found');
     })
-    .catch(err => console.log(`error getting top discard: ${err}`));
+    .catch(err => {
+      console.log(`error getting top discard: ${err}`);
+      res.status(404).send('Player not found');
+    });
   });
 
 module.exports = router;
