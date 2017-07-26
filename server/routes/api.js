@@ -4,7 +4,7 @@ const router = express.Router();
 const { findFilteredGames, findGame, createGame, addPlayer, dealCards, updateGame, drawCard } = require('../../db/helpers');
 const { isHandWinning } = require('./isHandWinning');
 const { shuffle } = require('./newDeck');
-const  emitPlayerNumber = require('../index.js');
+const emitPlayerNumber = require('../index.js');
 
 
 router.route('/')
@@ -34,6 +34,9 @@ router.route('/addPlayer')
   .post((req, res) => {
     let gameId = req.body.gameId;
     let player = req.body.player;
+  //console.log(emitPlayerNumber.emitPlayerNumber);
+
+    res.end()
     const getGame = new Promise((resolve, reject) => {
       findGame(gameId, resolve);
     })
@@ -43,7 +46,7 @@ router.route('/addPlayer')
       addPlayer(gameId, player, res);
       console.log(emitPlayerNumber);
       console.log(typeof emitPlayerNumber);
-      emitPlayerNumber(gameId);
+      emitPlayerNumber.emitPlayerNumber(gameId);
     })
     .catch(err => console.log(`Error adding player: ${err}`));
   });

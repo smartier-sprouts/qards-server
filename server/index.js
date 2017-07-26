@@ -27,4 +27,4 @@ const emitPlayerNumber = function (gameId) {
 };
 
 
-module.exports = emitPlayerNumber;
+module.exports.emitPlayerNumber = emitPlayerNumber;
