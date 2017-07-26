@@ -8,7 +8,7 @@ const server =  app.listen(PORT, () => {
 });
 
 const io = require('socket.io').listen(server);
-const serverEmitter = new EventEmitter();
+//const serverEmitter = new EventEmitter();
 
 
 io.sockets.on('connection', (socket) => {
