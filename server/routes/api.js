@@ -41,6 +41,7 @@ router.route('/addPlayer')
       console.log('Adding player to db');
       player.turn = game.owners.length;
       addPlayer(gameId, player, res);
+      console.log(emitPlayerNumber);
       emitPlayerNumber(gameId);
     })
     .catch(err => console.log(`Error adding player: ${err}`));
