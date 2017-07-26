@@ -35,8 +35,6 @@ router.route('/addPlayer')
     let gameId = req.body.gameId;
     let player = req.body.player;
   //console.log(emitPlayerNumber.emitPlayerNumber);
-
-    res.end()
     const getGame = new Promise((resolve, reject) => {
       findGame(gameId, resolve);
     })
