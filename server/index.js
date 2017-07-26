@@ -16,14 +16,14 @@ const serverEmitter = new EventEmitter();
 io.sockets.on('connection', (socket) => {
   console.log('client connected');
   socket.on('disconnect', () => console.log('Client disconnected'));
-  serverEmitter.on('playerJoin', (data) => {
-      io.emit('playerJoin', data);
+  serverEmitter.on('playerJoin', (gameId, data) => {
+      io.emit(gameId, data);
   });
 });
 
 const emitPlayerNumber = function (gameId) {
   console.log('in emitPlayerNumber');
-  serverEmitter.emit(gameId, {room: gameId, players: 5});
+  serverEmitter.emit('playerJoin', gameId, {room: gameId, players: 5});
 };
 
 
