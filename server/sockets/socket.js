@@ -2,7 +2,7 @@ const EventEmitter = require('events').EventEmitter;
 const server = require('../index.js').server;
 
 const io = require('socket.io').listen(server);
-const serverEmitter = require('../index.js').serverEmitter;
+const serverEmitter = require('../index.js');
 
 // io.on('connection', (socket) => {
 //   console.log('Client connected');

@@ -22,4 +22,4 @@ io.sockets.on('connection', (socket) => {
 });
 
 
-module.exports.serverEmitter = serverEmitter;
+module.exports = serverEmitter;
