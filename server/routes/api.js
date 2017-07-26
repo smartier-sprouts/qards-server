@@ -4,7 +4,7 @@ const router = express.Router();
 const { findFilteredGames, findGame, createGame, addPlayer, dealCards, updateGame, drawCard } = require('../../db/helpers');
 const { isHandWinning } = require('./isHandWinning');
 const { shuffle } = require('./newDeck');
-const { emitPlayerNumber } = require('../index.js');
+const  emitPlayerNumber = require('../index.js').emitPlayerNumber;
 
 
 router.route('/')
