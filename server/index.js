@@ -25,7 +25,9 @@ io.on('connection', (socket) => {
   serverEmitter.on('playerJoin', function (data) {
    socket.emit(data);
  });
+ setInterval(() => socket.emit('time', new Date().toTimeString()), 1000);
+
 });
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+//setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
 
 module.exports = server;
