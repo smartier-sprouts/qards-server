@@ -21,5 +21,9 @@ io.sockets.on('connection', (socket) => {
   });
 });
 
+const emitPlayerNumber = (gameId) => {
+  serverEmitter.emit('playerJoin', {room: gameId, players: 5});
+};
 
-module.exports = serverEmitter;
+
+module.exports = {emitPlayerNumber};
