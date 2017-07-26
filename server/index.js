@@ -21,7 +21,7 @@ io.sockets.on('connection', (socket) => {
   });
 });
 
-function emitPlayerNumber(gameId) {
+const emitPlayerNumber = function (gameId) {
   console.log('in emitPlayerNumber');
   serverEmitter.emit('playerJoin', {room: gameId, players: 5});
 };
