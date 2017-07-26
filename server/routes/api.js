@@ -4,7 +4,7 @@ const router = express.Router();
 const { findFilteredGames, findGame, createGame, addPlayer, dealCards, updateGame, drawCard } = require('../../db/helpers');
 const { isHandWinning } = require('./isHandWinning');
 const { shuffle } = require('./newDeck');
-const emitPlayerNumber = require('../index.js');
+const socketLogic = require('../index.js');
 
 
 router.route('/')
@@ -44,7 +44,7 @@ router.route('/addPlayer')
       addPlayer(gameId, player, res);
       console.log(emitPlayerNumber);
       console.log(typeof emitPlayerNumber);
-      emitPlayerNumber.emitPlayerNumber(gameId);
+      socketLogic.emitPlayerNumber(gameId);
     })
     .catch(err => console.log(`Error adding player: ${err}`));
   });
@@ -159,6 +159,7 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
             } else {
               card = game.owners[discardIndex].cards.pop();
               game.owners[i].cards.push(card);
+              //call sockets tell clients to get new turns
             }
           }
         }
@@ -208,6 +209,7 @@ router.route('/discard/:gameId/:playerId/:cardId')
         }
       }
       updateGame(req.params.gameId, game, res);
+      socketLogic.emitCheckDiscard(req.params.gameId);
       return;
     })
     .catch(err => (`Error moving card: ${err}`));
