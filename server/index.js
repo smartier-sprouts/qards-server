@@ -22,6 +22,9 @@ io.sockets.on('connection', (socket) => {
   serverEmitter.on('checkDiscard', (gameId, data) => {
       io.emit(gameId, data);
   });
+  serverEmitter.on('emitCheckDiscardAndNewTurn', (gameId, data) => {
+      io.emit(gameId, data);
+  });
 });
 
 const emitPlayerNumber = function (gameId) {
@@ -34,6 +37,13 @@ const emitCheckDiscard = function (gameId) {
   serverEmitter.emit('checkDiscard', gameId, {checkDiscard: true});
 };
 
+const emitCheckDiscardAndNewTurn = function (gameId) {
+  console.log('in emitCheckDiscardAndNewTurn');
+  serverEmitter.emit('emitCheckDiscardAndNewTurn', gameId, {newTurn: true, checkDiscard: true});
+};
+
+
 
 module.exports.emitPlayerNumber = emitPlayerNumber;
 module.exports.emitCheckDiscard = emitPlayerNumber;
+module.exports.emitCheckDiscardAndNewTurn = emitPlayerNumber;

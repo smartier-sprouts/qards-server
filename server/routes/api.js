@@ -209,7 +209,6 @@ router.route('/discard/:gameId/:playerId/:cardId')
         }
       }
       updateGame(req.params.gameId, game, res);
-      socketLogic.emitCheckDiscard(req.params.gameId);
       return;
     })
     .catch(err => (`Error moving card: ${err}`));

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const { card: Card, owner: Owner, game: Game } = require('./index');
+const socketLogic = require('../server/index.js');
+
 // const { Card, Owner, Game } = require('./index');
 // import { Card, Owner, Game } from './index.js';
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/games';
@@ -67,6 +69,7 @@ const updateGame = (id, data, res) => {
   .then(game => {
     console.log(`Game ${id} updated`);
     res.status(200).send(game);
+    socketLogic.emitCheckDiscardAndNewTurn(id);
   });
 };
 
@@ -80,10 +83,10 @@ const drawCard = (id, card, data, res) => {
 };
 
 module.exports = {
-  findGame: findGame, 
+  findGame: findGame,
   findAllGames: findAllGames,
-  findFilteredGames: findFilteredGames, 
-  createGame: createGame, 
+  findFilteredGames: findFilteredGames,
+  createGame: createGame,
   addPlayer: addPlayer,
   dealCards: dealCards,
   updateGame: updateGame,
