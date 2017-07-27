@@ -42,9 +42,9 @@ router.route('/addPlayer')
       console.log('Adding player to db');
       player.turn = game.owners.length;
       addPlayer(gameId, player, res);
-      console.log(emitPlayerNumber);
-      console.log(typeof emitPlayerNumber);
-      socketLogic.emitPlayerNumber(gameId);
+      //console.log(emitPlayerNumber);
+      //console.log(typeof emitPlayerNumber);
+      //socketLogic.emitPlayerNumber(gameId);
     })
     .catch(err => console.log(`Error adding player: ${err}`));
   });
