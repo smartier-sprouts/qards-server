@@ -25,10 +25,10 @@ const gameSchema = new Schema({
   type: String,
   name: String,
   open: Boolean,
+  public: Boolean,
   turnNum: Number,
   complete: Boolean,
   winner: String,
-  public: Boolean,
   owners: [ownerSchema]
 });
 
