@@ -27,9 +27,9 @@ io.sockets.on('connection', (socket) => {
   });
 });
 
-const emitPlayerNumber = function (gameId) {
+const emitPlayerCount = function (gameId, count) {
   console.log('in emitPlayerNumber');
-  serverEmitter.emit('playerJoin', gameId, {room: gameId, players: 5});
+  serverEmitter.emit('playerJoin', gameId, {room: gameId, players: count});
 };
 
 const emitCheckDiscard = function (gameId) {
@@ -44,6 +44,6 @@ const emitCheckDiscardAndNewTurn = function (gameId) {
 
 
 
-module.exports.emitPlayerNumber = emitPlayerNumber;
+module.exports.emitPlayerCount = emitPlayerCount;
 module.exports.emitCheckDiscard = emitCheckDiscard;
 module.exports.emitCheckDiscardAndNewTurn = emitCheckDiscardAndNewTurn;
