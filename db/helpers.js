@@ -57,6 +57,7 @@ const addPlayer = (gameId, player, res) => {
   .then(game => {
     let playerId = game.owners[game.owners.length - 1]._id;
     res.status(200).send({gameId: game._id, player: game.owners[game.owners.length - 1]});
+    socketLogic.emitPlayerCount(gameId, game.owners.length);
   });
 };
 
