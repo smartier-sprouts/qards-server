@@ -4,6 +4,7 @@ const router = express.Router();
 const { findFilteredGames, findGame, createGame, addPlayer, dealCards, updateGame, drawCard } = require('../../db/helpers');
 const { isHandWinning } = require('./isHandWinning');
 const { shuffle } = require('./newDeck');
+const socketLogic = require('../index.js');
 
 
 router.route('/')
@@ -15,7 +16,7 @@ router.route('/')
     res.status(201).send({ data: 'Posted!' });
   });
 
-  
+
 router.route('/games')
   .get((req, res) => {
     findFilteredGames({open: true, public: true}, res);
@@ -33,6 +34,7 @@ router.route('/addPlayer')
   .post((req, res) => {
     let gameId = req.body.gameId;
     let player = req.body.player;
+  //console.log(emitPlayerNumber.emitPlayerNumber);
     const getGame = new Promise((resolve, reject) => {
       findGame(gameId, resolve);
     })
@@ -40,12 +42,15 @@ router.route('/addPlayer')
       console.log('Adding player to db');
       player.turn = game.owners.length;
       addPlayer(gameId, player, res);
+      //console.log(emitPlayerNumber);
+      //console.log(typeof emitPlayerNumber);
+      //socketLogic.emitPlayerNumber(gameId);
     })
     .catch(err => console.log(`Error adding player: ${err}`));
   });
 
 
-router.route('/dealCards/:gameId') 
+router.route('/dealCards/:gameId')
   .get((req, res) => {
     const getGame = new Promise((resolve, reject) => {
       findGame(req.params.gameId, resolve);
@@ -56,7 +61,7 @@ router.route('/dealCards/:gameId')
       let cardsPerPlayer = req.body.cardsPerPlayer || 7;
       let deck = require('./newDeck').deck.slice();
       shuffle(deck);
-      
+
       for (let i = 0; i < cardsPerPlayer; i++) {
         for (let j = 0; j < playerCount; j++) {
           game.owners[j].cards.push(deck.pop());
@@ -88,7 +93,7 @@ router.route('/dealCards/:gameId')
   });
 
 router.route('/hasStarted/:gameId')
-  .get((req, res) => {  
+  .get((req, res) => {
     let gameId = req.params.gameId;
     const getGame = new Promise((resolve, reject) => {
       findGame(gameId, resolve);
@@ -97,7 +102,7 @@ router.route('/hasStarted/:gameId')
       res.status(200).send(!game.open);
     });
   });
-  
+
 
 router.route('/getHand/:gameId/:playerId')
   .get((req, res) => {
@@ -128,19 +133,19 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
       let card;
       let discardIndex = game.owners.length - 2;
       let drawIndex = game.owners.length - 1;
-      
+
       console.log('deckName is', req.params.deckName);
 
       for (let i = 0; i < game.owners.length; i++) {
         if (game.owners[i]._id.toString() === req.params.playerId) {
-          if (game.owners[i].cards.length > 7) { 
+          if (game.owners[i].cards.length > 7) {
             res.status(403).send('You have already drawn a card this turn');
-            return; 
+            return;
           } else {
             if (req.params.deckName === 'Draw') {
               card = game.owners[drawIndex].cards.pop();
               game.owners[i].cards.push(card);
-              console.log(`Draw pile now has ${game.owners[drawIndex].cards.length} cards in its pile.`);              
+              console.log(`Draw pile now has ${game.owners[drawIndex].cards.length} cards in its pile.`);
               console.log(`Discard pile now has ${game.owners[discardIndex].cards.length} cards in its pile.`);
               if (game.owners[drawIndex].cards.length === 0) {
                 console.log('Player just removed the last card from the deck. Pulling cards from discard pile and shuffling…');
@@ -154,6 +159,7 @@ router.route('/drawCard/:gameId/:playerId/:deckName')
             } else {
               card = game.owners[discardIndex].cards.pop();
               game.owners[i].cards.push(card);
+              //call sockets tell clients to get new turns
             }
           }
         }
@@ -227,9 +233,9 @@ router.route('/discardChange/:gameId')
       });
 
       res.status(200).send({
-        winner: game.winner, 
-        turnNum: game.turnNum, 
-        activePlayerName: activePlayerName, 
+        winner: game.winner,
+        turnNum: game.turnNum,
+        activePlayerName: activePlayerName,
         topOfDiscard: game.owners[discardDeckIndex].cards[lastDiscard]
       });
 
