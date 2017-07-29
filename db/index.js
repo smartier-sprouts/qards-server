@@ -22,6 +22,7 @@ const ownerSchema = new Schema({
 });
 
 const gameSchema = new Schema({
+  key: String,
   type: String,
   name: String,
   open: Boolean,
@@ -35,8 +36,6 @@ const gameSchema = new Schema({
 const Card = mongoose.model('Card', cardSchema);
 const Owner = mongoose.model('Owner', ownerSchema);
 const Game = mongoose.model('Game', gameSchema);
-
-// export default { Card, Owner, Game };
 
 module.exports = {
   card: Card, 

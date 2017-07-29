@@ -34,7 +34,6 @@ router.route('/addPlayer')
   .post((req, res) => {
     let gameId = req.body.gameId;
     let player = req.body.player;
-  //console.log(emitPlayerNumber.emitPlayerNumber);
     const getGame = new Promise((resolve, reject) => {
       findGame(gameId, resolve);
     })
@@ -42,9 +41,6 @@ router.route('/addPlayer')
       console.log('Adding player to db');
       player.turn = game.owners.length;
       addPlayer(gameId, player, res);
-      //console.log(emitPlayerNumber);
-      //console.log(typeof emitPlayerNumber);
-      //socketLogic.emitPlayerNumber(gameId);
     })
     .catch(err => console.log(`Error adding player: ${err}`));
   });
