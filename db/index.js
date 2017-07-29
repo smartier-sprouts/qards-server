@@ -22,21 +22,20 @@ const ownerSchema = new Schema({
 });
 
 const gameSchema = new Schema({
+  key: String,
   type: String,
   name: String,
   open: Boolean,
+  public: Boolean,
   turnNum: Number,
   complete: Boolean,
   winner: String,
-  public: Boolean,
   owners: [ownerSchema]
 });
 
 const Card = mongoose.model('Card', cardSchema);
 const Owner = mongoose.model('Owner', ownerSchema);
 const Game = mongoose.model('Game', gameSchema);
-
-// export default { Card, Owner, Game };
 
 module.exports = {
   card: Card, 

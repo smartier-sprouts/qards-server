@@ -40,6 +40,11 @@ const createGame = (data, res) => {
   .catch(err => console.log('Error saving game:', err))
   .then(game => {
     console.log('Game saved:', game);
+    game.key = game._id;
+    game.save((err, data) => {
+      if (err) { return `Error: ${err}`; }
+      console.log(`key prop added to game: ${data.key}`);
+    });
     res.status(201).send({gameId: game._id, player: game.owners[0]});
   });
 };
