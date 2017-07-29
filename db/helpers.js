@@ -79,6 +79,7 @@ const drawCard = (id, card, data, res) => {
   .then(game => {
     console.log(`Game ${id} updated`);
     res.status(200).send(card);
+    socketLogic.emitCheckDiscard(id);
   });
 };
 

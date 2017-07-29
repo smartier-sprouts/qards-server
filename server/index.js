@@ -45,5 +45,5 @@ const emitCheckDiscardAndNewTurn = function (gameId) {
 
 
 module.exports.emitPlayerNumber = emitPlayerNumber;
-module.exports.emitCheckDiscard = emitPlayerNumber;
-module.exports.emitCheckDiscardAndNewTurn = emitPlayerNumber;
+module.exports.emitCheckDiscard = emitCheckDiscard;
+module.exports.emitCheckDiscardAndNewTurn = emitCheckDiscardAndNewTurn;
