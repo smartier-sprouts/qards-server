@@ -25,6 +25,9 @@ io.sockets.on('connection', (socket) => {
   serverEmitter.on('emitCheckDiscardAndNewTurn', (gameId, data) => {
       io.emit(gameId, data);
   });
+  serverEmitter.on('emitGameStart', (gameId, data) => {
+      io.emit(gameId, data);
+  });
 });
 
 const emitPlayerCount = function (gameId, count) {
@@ -42,8 +45,15 @@ const emitCheckDiscardAndNewTurn = function (gameId) {
   serverEmitter.emit('emitCheckDiscardAndNewTurn', gameId, {newTurn: true, checkDiscard: true});
 };
 
+const emitGameStart = function (gameId) {
+  serverEmitter.emit('emitGameStart', gameId, {gameStarted: true});
+};
+
+
+
 
 
 module.exports.emitPlayerCount = emitPlayerCount;
 module.exports.emitCheckDiscard = emitCheckDiscard;
 module.exports.emitCheckDiscardAndNewTurn = emitCheckDiscardAndNewTurn;
+module.exports.emitGameStart = emitGameStart;

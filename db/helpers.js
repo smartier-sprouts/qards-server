@@ -61,6 +61,7 @@ const dealCards = (gameId, data, res) => {
   .catch(err => console.log('Error updating and returning game', err))
   .then(game => {
     res.status(200).send('Cards dealt');
+    socketLogic.emitGameStart(gameId);
   });
 };
 
