@@ -57,3 +57,4 @@ module.exports.emitPlayerCount = emitPlayerCount;
 module.exports.emitCheckDiscard = emitCheckDiscard;
 module.exports.emitCheckDiscardAndNewTurn = emitCheckDiscardAndNewTurn;
 module.exports.emitGameStart = emitGameStart;
+module.exports.server = server;
