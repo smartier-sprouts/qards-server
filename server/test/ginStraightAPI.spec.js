@@ -15,18 +15,19 @@ describe('Gin Straight API', function () {
   // afterEach(function (done) {
   //   dbUtils.rollback(done);
   // });
+  // it('accepts POST requests to /createGame', function (done) {
+  //   request(server)
+  //     .get('/api/games')
+  //     .expect('Content-Type', /json/)
+  //     .expect(200)
+  //     .end(done);
+  // });
 
   it('accepts GET requests to /games', function (done) {
     request(server)
       .get('/api/games')
-      .expect(res => {
-        res.body = {
-          length: res.body.length
-        };
-      })
-      .expect(200, {
-        length: 1
-      })
+      .expect('Content-Type', /json/)
+      .expect(200)
       .end(done);
   });
 
