@@ -9,7 +9,7 @@ const server =  app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
 });
 
-const io = require('socket.io').listen(server);
+const io = require('socket.io').listen(server, {pingTimeout: 30000});
 const serverEmitter = new EventEmitter();
 
 
