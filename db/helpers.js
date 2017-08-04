@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const { card: Card, owner: Owner, game: Game } = require('./index');
 const socketLogic = require('../server/index.js');
-
+const config = require('config');
 // const { Card, Owner, Game } = require('./index');
 // import { Card, Owner, Game } from './index.js';
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/games';
+const MONGODB_URI = process.env.MONGODB_URI || config.DBHost || 'mongodb://localhost/games';
 mongoose.Promise = global.Promise;
 
 console.log('MongoDB uri is', MONGODB_URI);
