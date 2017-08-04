@@ -16,18 +16,25 @@ const serverEmitter = new EventEmitter();
 io.sockets.on('connection', (socket) => {
   console.log('client connected');
   socket.on('disconnect', () => console.log('Client disconnected'));
+  socket.on('chat', (data) =>   io.emit(data) );
   serverEmitter.on('playerJoin', (gameId, data) => {
       io.emit(gameId, data);
   });
   serverEmitter.on('checkDiscard', (gameId, data) => {
+      console.log('-------------- emit checkDiscard')
+
       io.emit(gameId, data);
   });
   serverEmitter.on('emitCheckDiscardAndNewTurn', (gameId, data) => {
       io.emit(gameId, data);
+      console.log('-------------- emit checkDiscard and new turn')
+
   });
   serverEmitter.on('emitGameStart', (gameId, data) => {
+      console.log('-------------- emit game start')
       io.emit(gameId, data);
   });
+
 });
 
 const emitPlayerCount = function (gameId, count) {
