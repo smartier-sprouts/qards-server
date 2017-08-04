@@ -5,29 +5,93 @@ const expect = require('chai').expect;
 // const app = require('../app.js');
 const server = require('../index.js').server;
 const dbUtils = require('../../db/lib/utils.js');
+const { card: Card, owner: Owner, game: Game } = require('../../db/index');
 
 describe('Gin Straight API', function () {
-  // beforeEach(function (done) {
-  //   dbUtils.rollbackMigrate(done);
-  // });
 
-  // // Resets database back to original settings
-  // afterEach(function (done) {
-  //   dbUtils.rollback(done);
-  // });
-  // it('accepts POST requests to /createGame', function (done) {
-  //   request(server)
-  //     .get('/api/games')
-  //     .expect('Content-Type', /json/)
-  //     .expect(200)
-  //     .end(done);
-  // });
+  after(() => {
+    Game.remove({}, function (err) {
+      if (err) { 
+        console.error(err);
+      }
+    });
+    Owner.remove({}, function (err) {
+      if (err) { 
+        console.error(err);
+      }
+    });
+    Card.remove({}, function (err) {
+      if (err) { 
+        console.error(err);
+      }
+    });
+  });
 
-  it('accepts GET requests to /games', function (done) {
+  it('accepts POST request to /createGame and returns game info', function (done) {
+    let newGameDataObj = {
+      type: 'Gin Straight',
+      name: "Jake's Game",
+      public: true,
+      open: true,
+      complete: false,
+      winner: null,
+      owners: [{
+        name: 'Jake',
+        username: 'jakeCode',
+        turn: 0
+      }]
+    };
+
+    request(server)
+      .post('/api/createGame')
+      .send(newGameDataObj)
+      .expect((res) => {
+        res.body.gameId = typeof res.body.gameId === 'string' && res.body.gameId.length === 24;
+        res.body.player._id = typeof res.body.player._id === 'string' && res.body.player._id.length === 24;
+      })
+      .expect(201, {
+        gameId: true,
+        player: 
+          { name: 'Jake',
+           username: 'jakeCode',
+           turn: 0,
+           _id: true,
+           cards: [] 
+          }
+      })
+      .end(done);
+  });
+
+  it('accepts GET requests to /games and returns a previously posted game', function (done) {
     request(server)
       .get('/api/games')
-      .expect('Content-Type', /json/)
-      .expect(200)
+      .expect((res) => {
+        res.body[0]._id = typeof res.body[0]._id === 'string' && res.body[0]._id.length === 24;
+        res.body[0].key = typeof res.body[0].key === 'string' && res.body[0].key.length === 24;
+        res.body[0].owners[0]._id = typeof res.body[0].owners[0]._id === 'string' && res.body[0].owners[0]._id.length === 24;
+      })
+      .expect(200, [
+        { 
+          _id: true,
+          type: 'Gin Straight',
+          name: 'Jake\'s Game',
+          public: true,
+          open: true,
+          complete: false,
+          winner: null,
+          __v: 0,
+          key: true,
+          owners: 
+            [ {
+                name: 'Jake',
+                username: 'jakeCode',
+                turn: 0,
+                _id: true,
+                cards: []
+              } 
+            ]
+        }
+      ])
       .end(done);
   });
 
