@@ -7,7 +7,7 @@ const server = require('../index.js').server;
 const dbUtils = require('../../db/lib/utils.js');
 const { card: Card, owner: Owner, game: Game } = require('../../db/index');
 
-describe('Gin Straight API', function () {
+describe('Gin Straight API', () => {
 
   after(() => {
     Game.remove({}, function (err) {
@@ -27,7 +27,7 @@ describe('Gin Straight API', function () {
     });
   });
 
-  it('accepts POST request to /createGame and returns game info', function (done) {
+  it('accepts POST request to /createGame and returns game info', (done) => {
     let newGameDataObj = {
       type: 'Gin Straight',
       name: "Jake's Game",
@@ -62,10 +62,13 @@ describe('Gin Straight API', function () {
       .end(done);
   });
 
-  it('accepts GET requests to /games and returns a previously posted game', function (done) {
+  let gameId;
+
+  it('accepts GET requests to /games and returns a previously posted game', (done) => {
     request(server)
       .get('/api/games')
       .expect((res) => {
+        gameId = res.body[0]._id;
         res.body[0]._id = typeof res.body[0]._id === 'string' && res.body[0]._id.length === 24;
         res.body[0].key = typeof res.body[0].key === 'string' && res.body[0].key.length === 24;
         res.body[0].owners[0]._id = typeof res.body[0].owners[0]._id === 'string' && res.body[0].owners[0]._id.length === 24;
@@ -94,6 +97,22 @@ describe('Gin Straight API', function () {
       ])
       .end(done);
   });
+
+  it('accepts POST request /addPlayer and returns ', (done) => {
+    let addPlayerDataObj = {
+      gameId: gameId,
+      player: {
+        name: 'Henri',
+        username: 'chickenTrain'
+      }
+    };
+
+    request(server)
+      .post('/api/addPlayer')
+      .send(addPlayerDataObj)
+      .expect(200)
+      .end(done);
+  }); 
 
   // it('accepts GET requests to /api/profiles/:id', function (done) {
   //   request(app)
